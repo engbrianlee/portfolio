@@ -1,0 +1,31 @@
+/*! purgecss start ignore */
+@tailwind base;
+
+html {
+  scroll-behavior: smooth;
+}
+@tailwind components;
+
+/*! purgecss end ignore */
+
+.global-padding {
+  @apply px-12;
+}
+@screen md {
+  .global-padding {
+    @apply px-40;
+  }
+}
+@screen lg {
+  .global-padding {
+    @apply px-20;
+  }
+}
+@screen xl {
+  .global-padding {
+    padding-left: 15vw;
+    padding-right: 15vw;
+  }
+}
+
+@tailwind utilities;
