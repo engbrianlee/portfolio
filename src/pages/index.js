@@ -153,6 +153,7 @@ const WorkIcon = () => (
     height="24"
     width="24"
     fill="currentColor"
+    className="text-white"
   >
     <path d="M0 0h24v24H0z" fill="none" />
     <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
@@ -164,6 +165,7 @@ const SchoolIcon = () => (
     xmlns="http://www.w3.org/2000/svg"
     height="24"
     width="24"
+    className="text-white"
   >
     <path d="M0 0h24v24H0z" fill="none" />
     <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
@@ -177,23 +179,132 @@ const TimelineElement = ({
   description,
   color,
   textColor,
+  dateClassName,
+  badges,
+  badgeClassName,
 }) => (
   <VerticalTimelineElement
     date={date}
     iconStyle={{
       background: color,
-      color: "#fff",
     }}
-    contentStyle={{ borderTop: `4px solid ${color}` }}
+    contentStyle={{
+      borderTop: `4px solid ${color}`,
+      color: textColor,
+    }}
     icon={icon}
+    dateClassName={dateClassName}
   >
-    <h3>{company}</h3>
-    <h4>{title}</h4>
+    <h4 className="text-xs font-semibold tracking-wide text-gray-600 uppercase">
+      {title}
+    </h4>
+    <h3 className="text-xl font-bold">{company}</h3>
     <p>{description}</p>
+    <div className="mt-2 space-x-1">
+      {badges &&
+        badges.map((badge) => (
+          <span
+            key={badge}
+            className={classNames(
+              badgeClassName,
+              "inline-block px-2 text-xs font-semibold tracking-wide uppercase rounded-full"
+            )}
+          >
+            {badge}
+          </span>
+        ))}
+    </div>
   </VerticalTimelineElement>
 );
-const Resume = () => {
-  const { theme } = useContext(ThemeContext);
+const Timeline = () => {
+  const { theme, getHex } = useContext(ThemeContext);
+
+  const TIMELINE_EVENTS = [
+    {
+      date: "Aug 2020 - present",
+      company: "Citadel",
+      title: "Software Engineer",
+      description: "Just started! I'll have to let you know later 😃!",
+      icon: <WorkIcon />,
+      color: theme.color.accentOneHex,
+      badges: ["C++", "Python"],
+      badgeClassName: classNames(
+        theme.color.accentOneBgLighter,
+        theme.color.accentOneTextDarker
+      ),
+    },
+    {
+      date: "May 2019 - Sept 2019",
+      company: "Wish",
+      title: "Software Engineering Intern",
+      description: (
+        <>
+          Automation pipelines for
+          <a
+            href="https://www.wish.com/local"
+            className={classNames(
+              theme.color.focusable,
+              theme.color.accentOneText,
+              "underline"
+            )}
+          >
+            Wish Local
+          </a>
+          . Increased total approved stores by 5x as well as approval rate and
+          time by 2x!
+        </>
+      ),
+      icon: <WorkIcon />,
+      color: theme.color.accentOneHex,
+      badges: ["Fullstack", "Python", "React"],
+      badgeClassName: classNames(
+        theme.color.accentOneBgLighter,
+        theme.color.accentOneTextDarker
+      ),
+    },
+    {
+      date: "May 2018 - Dec 2019",
+      company: "Intel",
+      title: "Software Engineering Intern",
+      description: (
+        <>
+          Cache-friendly and memory efficient algorithms & data structures for
+          FPGA CAD software,{" "}
+          <a
+            href="https://www.intel.ca/content/www/ca/en/software/programmable/quartus-prime/overview.html"
+            className={classNames(
+              theme.color.focusable,
+              theme.color.accentOneText,
+              "underline"
+            )}
+          >
+            Quartus
+          </a>
+          .
+        </>
+      ),
+      icon: <WorkIcon />,
+      color: theme.color.accentOneHex,
+      badges: ["C++"],
+      badgeClassName: classNames(
+        theme.color.accentOneBgLighter,
+        theme.color.accentOneTextDarker
+      ),
+    },
+    {
+      date: "June 2020",
+      company: "McMaster University",
+      title: "B.Eng Computer Engineering",
+      description:
+        "Graduated with the highest GPA in the Faculty of Engineering, I love learning 😛!",
+      icon: <SchoolIcon />,
+      color: theme.color.accentTwoHex,
+      badgeClassName: classNames(
+        theme.color.accentTwoBgLighter,
+        theme.color.accentTwoTextDarker
+      ),
+    },
+  ];
 
   return (
     <VerticalTimeline
@@ -204,14 +315,18 @@ const Resume = () => {
     //   }
     // `}
     >
-      <TimelineElement
-        date="Aug 2020 - present"
-        icon={<WorkIcon />}
-        company="Citadel"
-        title="Software Engineer"
-        decription="Who knows?"
-        color={theme.color.accntOneHex}
-      />
+      {TIMELINE_EVENTS.map((timelineEvent) => (
+        <TimelineElement
+          {...timelineEvent}
+          key={[
+            timelineEvent.date,
+            timelineEvent.company,
+            timelineEvent.title,
+          ].join()}
+          textColor={getHex("gray-900")}
+          dateClassName={theme.color.primaryText}
+        />
+      ))}
     </VerticalTimeline>
   );
 };
@@ -223,7 +338,12 @@ const HomePage = () => {
         title="Home"
       />
       <Welcome />
-      <Resume />
+      <div id="resume" className="pt-24">
+        <h2 className="pb-4 text-4xl font-semibold text-center underline">
+          Resume
+        </h2>
+      </div>
+      <Timeline />
 
       {/* <div
         id="projects"
