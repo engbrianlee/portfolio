@@ -36,14 +36,16 @@ export const ThemeProvider = ({ children }) => {
       accentOneText: "text-blue-600",
       accentOneBgLighter: "bg-blue-200",
       accentOneTextDarker: "text-blue-800",
+      accentOneBorder: "border-blue-800",
       accentOneHex: getHex("blue-600"),
       accentTwoText: "text-green-600",
       accentTwoBgLighter: "bg-green-200",
       accentTwoTextDarker: "text-green-800",
+      accentTwoBorder: "border-green-800",
       accentTwoHex: getHex("green-600"),
 
       focusable:
-        "hover:text-gray-600 focus:border-opacity-100 focus:outline-none border-2 border-opacity-0 rounded-md border-gray-600",
+        "border-current hover:text-gray-600 focus:outline-none focus:border-2 rounded-md",
     },
   });
   const invertTheme = () => {

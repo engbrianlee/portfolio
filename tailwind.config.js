@@ -17,9 +17,9 @@ module.exports = {
     },
   },
   variants: {
-    space: ["responsive", "odd"],
-    flexDirection: ["responsive", "odd"],
+    // Add focus
     textColor: ["responsive", "hover", "focus"],
+    borderWidth: ["responsive", "focus"],
   },
   // https://github.com/tailwindcss/custom-forms
   plugins: [require("@tailwindcss/custom-forms")],

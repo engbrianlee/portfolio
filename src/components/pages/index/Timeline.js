@@ -113,11 +113,12 @@ const Timeline = () => {
       title: "Software Engineering Intern",
       description: (
         <>
-          Automation pipelines for
+          Automation pipelines for{" "}
           <a
             href="https://www.wish.com/local"
             className={classNames(
               theme.color.focusable,
+              theme.color.accentOneBorder,
               theme.color.accentOneText,
               "underline"
             )}
@@ -148,6 +149,7 @@ const Timeline = () => {
             href="https://www.intel.ca/content/www/ca/en/software/programmable/quartus-prime/overview.html"
             className={classNames(
               theme.color.focusable,
+              theme.color.accentOneBorder,
               theme.color.accentOneText,
               "underline"
             )}
