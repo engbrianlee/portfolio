@@ -24,12 +24,14 @@ export const ThemeProvider = ({ children }) => {
       primaryBorder: "border-gray-900",
       primaryHex: getHex("gray-900"),
       primaryBgLighter: "bg-gray-850",
+      primaryBgHoverLighter: "hover:bg-gray-850",
 
       secondaryBg: "bg-white",
       secondaryText: "text-white",
       secondaryBorder: "border-white",
       secondaryHex: getHex("white"),
       secondaryBgLighter: "bg-gray-50",
+      secondaryBgHoverLighter: "hover:bg-gray-50",
 
       accentOneText: "text-blue-600",
       accentOneBgLighter: "bg-blue-200",
@@ -46,7 +48,15 @@ export const ThemeProvider = ({ children }) => {
   });
   const invertTheme = () => {
     setTheme((theme) => {
-      const suffixes = ["", "Bg", "Text", "Border", "Hex", "BgLighter"];
+      const suffixes = [
+        "",
+        "Bg",
+        "Text",
+        "Border",
+        "Hex",
+        "BgLighter",
+        "BgHoverLighter",
+      ];
       const themeCopy = _.cloneDeep(theme);
       for (let suffix of suffixes) {
         themeCopy.color[`primary${suffix}`] =
