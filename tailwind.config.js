@@ -8,6 +8,7 @@ module.exports = {
         gray: {
           ...colors.gray,
           "50": "#f6f7f8",
+          "850": "#212736",
         },
       },
       opacity: {

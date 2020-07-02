@@ -39,9 +39,7 @@ const Header = () => {
     <div
       className={classNames(
         theme.color.secondaryBg,
-        "fixed z-10 w-full shadow",
-        theme.color.primaryBorder,
-        "border-b border-opacity-10"
+        "fixed z-10 w-full shadow"
       )}
     >
       <header className="width-full global-padding">

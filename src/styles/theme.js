@@ -24,7 +24,7 @@ export const ThemeProvider = ({ children }) => {
       primaryText: "text-gray-900",
       primaryBorder: "border-gray-900",
       primaryHex: getHex("gray-900"),
-      primaryBgLighter: "bg-gray-900",
+      primaryBgLighter: "bg-gray-850",
 
       secondary: "white",
       secondaryBg: "bg-white",
