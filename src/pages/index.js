@@ -149,23 +149,20 @@ ProjectCard.propTypes = {
 ProjectCard.defaultProps = {
   reverse: false,
 };
-
-const WorkIcon = ({ color }) => (
+const WorkIcon = () => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     height="24"
     width="24"
     fill="currentColor"
-    className={color}
   >
     <path d="M0 0h24v24H0z" fill="none" />
     <path d="M20 6h-4V4c0-1.11-.89-2-2-2h-4c-1.11 0-2 .89-2 2v2H4c-1.11 0-1.99.89-1.99 2L2 19c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V8c0-1.11-.89-2-2-2zm-6 0h-4V4h4v2z" />
   </svg>
 );
-const SchoolIcon = (color) => (
+const SchoolIcon = () => (
   <svg
     fill="currentColor"
-    className={color}
     xmlns="http://www.w3.org/2000/svg"
     height="24"
     width="24"
@@ -174,8 +171,53 @@ const SchoolIcon = (color) => (
     <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
   </svg>
 );
-const HomePage = () => {
+const TimelineElement = ({
+  date,
+  icon,
+  company,
+  title,
+  description,
+  color,
+  textColor,
+}) => (
+  <VerticalTimelineElement
+    date={date}
+    iconStyle={{
+      background: color,
+      color: "#fff",
+    }}
+    contentStyle={{ borderTop: `4px solid ${color}` }}
+    icon={icon}
+  >
+    <h3>{company}</h3>
+    <h4>{title}</h4>
+    <p>{description}</p>
+  </VerticalTimelineElement>
+);
+const Resume = () => {
   const { theme } = useContext(ThemeContext);
+
+  return (
+    <VerticalTimeline
+    // Style the line: https://github.com/stephane-monnot/react-vertical-timeline/issues/66
+    // css={css`
+    //   &::before {
+    //     background: ${theme.color.primaryHex};
+    //   }
+    // `}
+    >
+      <TimelineElement
+        date="Aug 2020 - present"
+        icon={<WorkIcon />}
+        company="Citadel"
+        title="Software Engineer"
+        decription="Who knows?"
+        color={theme.color.accntOneHex}
+      />
+    </VerticalTimeline>
+  );
+};
+const HomePage = () => {
   return (
     <Layout>
       <SEO
@@ -183,86 +225,7 @@ const HomePage = () => {
         title="Home"
       />
       <Welcome />
-      <VerticalTimeline>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          contentStyle={{
-            borderTop: "4px solid rgb(33, 150, 243)",
-          }}
-          date="Aug 2020 - present"
-          iconStyle={{
-            background: "rgb(33, 150, 243)",
-            color: theme.color.primaryText,
-          }}
-          icon={<WorkIcon color={theme.color.primaryText} />}
-        >
-          <h3 className="vertical-timeline-element-title">Citadel</h3>
-          <h4 className="text-sm">Software Engineer</h4>
-          <p>
-            Creative Direction, User Experience, Visual Design, Project
-            Management, Team Leading
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          contentStyle={{
-            borderTop: "rgb(33, 150, 243)",
-            color: theme.color.primaryText,
-          }}
-          contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
-          date="May 2019 - Aug 2019"
-          iconStyle={{
-            background: "rgb(33, 150, 243)",
-            color: theme.color.primaryText,
-          }}
-          icon={<WorkIcon color={theme.color.primaryText} />}
-        >
-          <h3 className="vertical-timeline-element-title">Wish</h3>
-          <h4 className="text-sm">Software Engineering Intern</h4>
-          <p>
-            Creative Direction, User Experience, Visual Design, SEO, Online
-            Marketing
-          </p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--work"
-          contentStyle={{
-            background: "rgb(33, 150, 243)",
-            color: theme.color.primaryText,
-          }}
-          contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
-          date="May 2018 - Oct 2019"
-          iconStyle={{
-            background: "rgb(33, 150, 243)",
-            color: theme.color.primaryText,
-          }}
-          icon={<WorkIcon color={theme.color.primaryText} />}
-        >
-          <h3 className="vertical-timeline-element-title">Intel</h3>
-          <h4 className="text-sm">Software Engineering Intern</h4>
-          <p>User Experience, Visual Design</p>
-        </VerticalTimelineElement>
-        <VerticalTimelineElement
-          className="vertical-timeline-element--education"
-          contentStyle={{
-            borderTop: "rgb(33, 150, 243)",
-            color: theme.color.primaryText,
-          }}
-          contentArrowStyle={{ borderRight: "7px solid  rgb(33, 150, 243)" }}
-          date="May 2020"
-          iconStyle={{
-            background: "rgb(233, 30, 99)",
-            color: theme.color.primaryText,
-          }}
-          icon={<SchoolIcon color={theme.color.primaryText} />}
-        >
-          <h3 className="vertical-timeline-element-title">
-            B.Eng Computer Engineering
-          </h3>
-          <h4 className="text-sm">McMaster University</h4>
-          <p>Graduated with highest GPA in Faculty of Engineering</p>
-        </VerticalTimelineElement>
-      </VerticalTimeline>
+      <Resume />
 
       {/* <div
         id="projects"

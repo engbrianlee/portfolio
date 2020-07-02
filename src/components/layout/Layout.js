@@ -16,7 +16,14 @@ function Layout({ children, footerBgColor }) {
       )}
     >
       <Header />
-      <main className="global-padding sm:pt-10">{children}</main>
+      <main
+        className={classNames(
+          theme.color.secondaryBgLighter,
+          "global-padding sm:pt-10"
+        )}
+      >
+        {children}
+      </main>
       <Footer bgColor={footerBgColor} />
     </div>
   );

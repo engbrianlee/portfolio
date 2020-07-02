@@ -1,14 +1,17 @@
-// tailwind.config.js
-const defaultTheme = require("tailwindcss/defaultTheme");
-
-module.exports = {};
+const { colors } = require("tailwindcss/defaultTheme");
 // See https://tailwindcss.com/docs/configuration for details
 module.exports = {
   purge: ["./src/**/*.js"],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["Roboto", ...defaultTheme.fontFamily.sans],
+      colors: {
+        gray: {
+          ...colors.gray,
+          "50": "#f6f7f8",
+        },
+      },
+      opacity: {
+        "10": "0.1",
       },
     },
   },

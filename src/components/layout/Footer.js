@@ -6,12 +6,14 @@ import classNames from "classnames";
 const Footer = () => {
   const { theme } = useContext(ThemeContext);
   return (
-    <div>
+    <div
+      className={classNames(
+        theme.color.primaryBorder,
+        "border-t border-opacity-10"
+      )}
+    >
       <footer
-        className={classNames(
-          theme.color.primaryBorder,
-          "flex flex-col items-center py-4 item-center border-t-2"
-        )}
+        className={classNames("flex flex-col items-center py-4 item-center")}
       >
         <nav className="flex items-center">
           <a href="https://www.linkedin.com/in/engbrianlee/" className="p-2 ">
