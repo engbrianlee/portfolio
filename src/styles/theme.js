@@ -4,6 +4,17 @@ const resolveConfig = require("tailwindcss/resolveConfig");
 const tailwindConfig = require("../../tailwind.config");
 
 const fullConfig = resolveConfig(tailwindConfig);
+const parseCssVariableName = (s) => s.match(/var\((.+)\)/)[1];
+const PRIMARY_CSS_VARIABLES = Object.fromEntries(
+  Object.entries(
+    fullConfig.theme.colors.primary
+  ).map(([shade, cssVariable]) => [shade, parseCssVariableName(cssVariable)])
+);
+const SECONDARY_CSS_VARIABLES = Object.fromEntries(
+  Object.entries(
+    fullConfig.theme.colors.secondary
+  ).map(([shade, cssVariable]) => [shade, parseCssVariableName(cssVariable)])
+);
 
 const getHex = (tailwindName) =>
   _.get(fullConfig.theme.colors, tailwindName.replace("-", "."));
@@ -70,6 +81,25 @@ export const ThemeProvider = ({ children }) => {
           ? THEME_TYPES.dark
           : THEME_TYPES.light;
       return themeCopy;
+    });
+  };
+  const invertThemeCss = () => {
+    Object.entries(PRIMARY_CSS_VARIABLES).map(([shade, primaryCssVariable]) => {
+      const primaryColor = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue(primaryCssVariable);
+      const secondaryCssVariable = SECONDARY_CSS_VARIABLES[shade];
+      const secondaryColor = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue(secondaryCssVariable);
+      document.documentElement.style.setProperty(
+        primaryCssVariable,
+        secondaryColor
+      );
+      document.documentElement.style.setProperty(
+        secondaryCssVariable,
+        primaryColor
+      );
     });
   };
 

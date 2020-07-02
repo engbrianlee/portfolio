@@ -1,12 +1,26 @@
 /*! purgecss start ignore */
 @tailwind base;
 
+:root {
+  /* Light */
+  --color-primary-900: theme("colors.gray.900");
+  --color-primary-800: #212736;
+  /* Dark */
+  --color-secondary-900: theme("colors.white");
+  --color-secondary-800: #f6f7f8;
+
+  --color-accentOne-200: theme("colors.blue.200");
+  --color-accentOne-600: theme("colors.blue.600");
+  --color-accentOne-800: theme("colors.blue.800");
+  --color-accentTwo-200: theme("colors.green.200");
+  --color-accentTwo-600: theme("colors.green.600");
+  --color-accentTwo-800: theme("colors.green.800");
+  /* ... */
+}
 html {
   scroll-behavior: smooth;
 }
 @tailwind components;
-
-/*! purgecss end ignore */
 
 .global-padding {
   @apply px-12;
@@ -27,5 +41,6 @@ html {
     padding-right: 15vw;
   }
 }
+/*! purgecss end ignore */
 
 @tailwind utilities;
