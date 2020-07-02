@@ -159,7 +159,7 @@ const Timeline = () => {
       company: "McMaster University",
       title: "B.Eng Computer Engineering",
       description:
-        "Graduated with the highest GPA in the Faculty of Engineering, I love learning 😛!",
+        "Graduated with the highest GPA in the Faculty of Engineering; I love learning 😛!",
       icon: <SchoolIcon />,
       badgeClassName: classNames("text-accentTwo-800", "bg-accentTwo-200"),
       iconClassName: "bg-accentTwo-600",

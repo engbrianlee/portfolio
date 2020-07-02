@@ -21,10 +21,10 @@ const SECONDARY_CSS_VARIABLES = Object.fromEntries(
 const ThemeContext = React.createContext();
 // eslint-disable-next-line react/prop-types
 export const ThemeProvider = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const invertTheme = () => {
     invertThemeCss();
-    setIsDarkTheme((isDarkTheme) => !isDarkTheme);
+    setIsDarkMode((isDarkMode) => !isDarkMode);
   };
   const invertThemeCss = () => {
     Object.entries(PRIMARY_CSS_VARIABLES).map(([shade, primaryCssVariable]) => {
@@ -47,7 +47,7 @@ export const ThemeProvider = ({ children }) => {
   };
 
   return (
-    <ThemeContext.Provider value={{ invertTheme, isDarkTheme }}>
+    <ThemeContext.Provider value={{ invertTheme, isDarkMode }}>
       {children}
     </ThemeContext.Provider>
   );

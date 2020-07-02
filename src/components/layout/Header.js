@@ -4,7 +4,7 @@ import ThemeContext from "../../styles/theme";
 import { Link } from "gatsby";
 
 const Header = () => {
-  const { invertTheme, isDarkTheme } = useContext(ThemeContext);
+  const { invertTheme, isDarkMode } = useContext(ThemeContext);
   const [navIsOpen, setNavIsOpen] = useState(false);
 
   const ThemeIcon = () => (
@@ -17,7 +17,7 @@ const Header = () => {
       strokeLinejoin="round"
       className="w-6"
     >
-      {isDarkTheme ? (
+      {isDarkMode ? (
         <>
           <circle cx="12" cy="12" r="5"></circle>
           <line x1="12" y1="1" x2="12" y2="3"></line>

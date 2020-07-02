@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import classNames from "classnames";
+import ThemeContext from "../../styles/theme";
 
 const Footer = () => {
   return (
     <div
-      className={classNames("border-primary-900", "border-t border-opacity-10")}
+      className={classNames("border-white border-t border-opacity-10 shadow")}
     >
       <footer
         className={classNames("flex flex-col items-center py-4 item-center")}
