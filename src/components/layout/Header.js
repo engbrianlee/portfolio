@@ -4,7 +4,7 @@ import ThemeContext from "../../styles/theme";
 import { Link } from "gatsby";
 
 const Header = () => {
-  const { theme, invertTheme, isDarkTheme } = useContext(ThemeContext);
+  const { invertTheme, isDarkTheme } = useContext(ThemeContext);
   const [navIsOpen, setNavIsOpen] = useState(false);
 
   const ThemeIcon = () => (
@@ -36,18 +36,13 @@ const Header = () => {
   );
 
   return (
-    <div
-      className={classNames(
-        theme.color.secondaryBg,
-        "fixed z-10 w-full shadow"
-      )}
-    >
+    <div className={classNames("bg-secondary-900", "fixed z-10 w-full shadow")}>
       <header className="width-full global-padding">
         <div className="relative flex items-center justify-center py-3 lg:justify-between">
           <button
             className={classNames(
-              theme.color.primaryText,
-              theme.color.focusable,
+              "text-primary-900",
+              "focusable",
               "absolute left-0 flex items-center lg:hidden"
             )}
             onClick={() => setNavIsOpen((navIsOpen) => !navIsOpen)}
@@ -75,8 +70,8 @@ const Header = () => {
           <Link
             to="/"
             className={classNames(
-              theme.color.primaryText,
-              theme.color.focusable,
+              "text-primary-900",
+              "focusable",
               "inline-block p-2 font-serif text-xl font-bold xl:text-2xl"
             )}
           >
@@ -93,26 +88,26 @@ const Header = () => {
           <nav className="items-center hidden space-x-8 text-sm font-semibold lg:space-x-16 lg:flex xl:text-base">
             <a
               href="#resume"
-              className={classNames(theme.color.focusable, "hover:underline")}
+              className={classNames("focusable", "hover:underline")}
             >
               Resume
             </a>
             <a
               href="#projects"
-              className={classNames(theme.color.focusable, "hover:underline")}
+              className={classNames("focusable", "hover:underline")}
             >
               Projects
             </a>
             <a
               href="#contact"
-              className={classNames(theme.color.focusable, "hover:underline")}
+              className={classNames("focusable", "hover:underline")}
             >
               Contact
             </a>
             <button
               className={classNames(
-                theme.color.primaryText,
-                theme.color.focusable,
+                "text-primary-900",
+                "focusable",
                 "hidden lg:flex items-center"
               )}
               onClick={() => invertTheme()}
@@ -122,8 +117,8 @@ const Header = () => {
           </nav>
           <button
             className={classNames(
-              theme.color.primaryText,
-              theme.color.focusable,
+              "text-primary-900",
+              "focusable",
               "absolute right-0 flex items-center lg:hidden"
             )}
             onClick={() => invertTheme()}
@@ -141,7 +136,7 @@ const Header = () => {
             href="#resume"
             className={classNames(
               "block py-4 rounded-lg hover:underline",
-              theme.color.focusable
+              "focusable"
             )}
           >
             Resume
@@ -150,7 +145,7 @@ const Header = () => {
             href="#projects"
             className={classNames(
               "block py-4 rounded-lg hover:underline",
-              theme.color.focusable
+              "focusable"
             )}
           >
             Projects
@@ -159,7 +154,7 @@ const Header = () => {
             href="#contact"
             className={classNames(
               "block py-4 rounded-lg hover:underline",
-              theme.color.focusable
+              "focusable"
             )}
           >
             Contact

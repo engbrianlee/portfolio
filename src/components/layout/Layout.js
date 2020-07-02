@@ -1,26 +1,21 @@
 import PropTypes from "prop-types";
-import React, { useContext } from "react";
+import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import ThemeContext from "../../styles/theme";
 import classNames from "classnames";
 
 function Layout({ children, footerBgColor }) {
-  const { theme } = useContext(ThemeContext);
   return (
     <div
       className={classNames(
-        theme.color.primaryText,
-        theme.color.secondaryBg,
+        "text-primary-900",
+        "bg-secondary-900",
         "antialiased"
       )}
     >
       <Header />
       <main
-        className={classNames(
-          theme.color.secondaryBgLighter,
-          "global-padding sm:pt-10"
-        )}
+        className={classNames("bg-secondary-800", "global-padding sm:pt-10")}
       >
         {children}
       </main>

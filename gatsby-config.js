@@ -25,7 +25,7 @@ module.exports = {
         short_name: `engbrianlee`,
         start_url: `/`,
         background_color: fullConfig.theme.colors.white,
-        theme_color: fullConfig.theme.colors.blue["100"],
+        theme_color: fullConfig.theme.colors.blue["600"],
         display: `minimal-ui`,
         icon: `src/images/logo.svg`,
       },

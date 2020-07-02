@@ -1,8 +1,7 @@
-import React, { useContext } from "react";
+import React from "react";
 import classNames from "classnames";
 import Typist from "react-typist";
 import "react-typist/dist/Typist.css";
-import ThemeContext from "../../../styles/theme";
 import styled, { keyframes } from "styled-components";
 
 const bobAnimation = keyframes`{
@@ -22,7 +21,6 @@ const BobAnimation = styled.div.attrs((props) => ({
 `;
 
 const Hero = () => {
-  const { theme } = useContext(ThemeContext);
   return (
     <>
       <div style={{ height: "80vh" }} className="flex items-center">
@@ -36,10 +34,7 @@ const Hero = () => {
       <div style={{ height: "20vh" }}>
         <a
           href="#resume"
-          className={classNames(
-            theme.color.focusable,
-            "block w-16 h-16 mx-auto"
-          )}
+          className={classNames("focusable", "block w-16 h-16 mx-auto")}
         >
           <BobAnimation>
             <svg

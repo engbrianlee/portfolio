@@ -1,15 +1,10 @@
-import React, { useContext } from "react";
-import ThemeContext from "../../styles/theme";
+import React from "react";
 import classNames from "classnames";
 
 const Footer = () => {
-  const { theme } = useContext(ThemeContext);
   return (
     <div
-      className={classNames(
-        theme.color.primaryBorder,
-        "border-t border-opacity-10"
-      )}
+      className={classNames("border-primary-900", "border-t border-opacity-10")}
     >
       <footer
         className={classNames("flex flex-col items-center py-4 item-center")}
@@ -17,7 +12,7 @@ const Footer = () => {
         <nav className="flex items-center">
           <a
             href="https://www.linkedin.com/in/engbrianlee/"
-            className={classNames(theme.color.focusable, "p-2")}
+            className={classNames("focusable", "p-2")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -33,7 +28,7 @@ const Footer = () => {
           </a>
           <a
             href="https://github.com/engbrianlee"
-            className={classNames(theme.color.focusable, "p-2")}
+            className={classNames("focusable", "p-2")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

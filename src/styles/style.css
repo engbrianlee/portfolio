@@ -41,6 +41,16 @@ html {
     padding-right: 15vw;
   }
 }
+
+.focusable:hover {
+  @apply text-gray-600;
+}
+.focusable:focus {
+  @apply border-2 outline-none;
+}
+.focusable {
+  @apply border-current rounded-md;
+}
 /*! purgecss end ignore */
 
 @tailwind utilities;
