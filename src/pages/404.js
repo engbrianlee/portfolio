@@ -5,6 +5,7 @@ import Typist from "react-typist";
 import Button from "../components/utils/Button";
 import ThemeContext from "../styles/theme";
 import _ from "lodash";
+import { Link } from "gatsby";
 
 function NotFoundPage() {
   const { changeTheme, themes } = useContext(ThemeContext);
@@ -32,7 +33,9 @@ function NotFoundPage() {
         </div>
       </div>
       <div style={{ height: "20vh" }} className="text-center">
-        <Button className="w-full py-2">Home</Button>
+        <Button className="inline-block w-full max-w-md py-2" as={Link} to="/">
+          Home
+        </Button>
       </div>
     </Layout>
   );
