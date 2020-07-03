@@ -7,6 +7,7 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import PropTypes from "prop-types";
 import tw, { css } from "twin.macro";
+import Badge from "../../utils/Badge";
 
 const WorkIcon = () => (
   <svg
@@ -61,20 +62,14 @@ const TimelineElement = ({
     <h4 className="text-xs font-semibold tracking-wide text-gray-600 uppercase">
       {title}
     </h4>
-    <h3 className="text-xl font-bold">{company}</h3>
+    <h3 className="text-xl font-semibold">{company}</h3>
     <p>{description}</p>
     <div className="mt-2 space-x-1">
       {badges &&
         badges.map((badge) => (
-          <span
-            key={badge}
-            className={classNames(
-              badgeClassName,
-              "inline-block px-2 text-xs font-semibold tracking-wide uppercase rounded-full"
-            )}
-          >
+          <Badge key={badge} className={badgeClassName}>
             {badge}
-          </span>
+          </Badge>
         ))}
     </div>
   </VerticalTimelineElement>

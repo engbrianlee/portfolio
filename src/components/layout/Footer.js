@@ -4,6 +4,7 @@ import classNames from "classnames";
 const Footer = () => {
   return (
     <div
+      id="contact"
       className={classNames("border-white border-t border-opacity-10 shadow")}
     >
       <footer
