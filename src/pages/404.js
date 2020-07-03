@@ -7,7 +7,7 @@ import ThemeContext from "../styles/theme";
 import _ from "lodash";
 
 function NotFoundPage() {
-  const { changeTheme, themes, isDarkMode } = useContext(ThemeContext);
+  const { changeTheme, themes } = useContext(ThemeContext);
   const themesList = Object.values(themes);
   return (
     <Layout>
@@ -20,10 +20,9 @@ function NotFoundPage() {
           <Typist>
             <h1
               className="text-6xl text-red-600"
-              onClick={() => {
-                console.log({ isDarkMode });
-                changeTheme(themesList[_.random(themesList.length - 1)]);
-              }}
+              onClick={() =>
+                changeTheme(themesList[_.random(themesList.length - 1)])
+              }
             >
               404!
             </h1>

@@ -16,7 +16,7 @@
   --color-accentTwo-600: theme("colors.green.600");
   --color-accentTwo-800: theme("colors.green.800");
 
-  --color-focusable-900: theme("colors.green.600");
+  --color-focusable-900: theme("colors.gray.600");
 }
 .theme-test-1 {
   --color-primary-900: theme("colors.purple.300");
@@ -48,6 +48,7 @@
 
   --color-focusable-900: theme("colors.yellow.600");
 }
+
 html {
   scroll-behavior: smooth;
 }
