@@ -1,5 +1,4 @@
 import React from "react";
-import classNames from "classnames";
 import Typist from "react-typist";
 import "react-typist/dist/Typist.css";
 import styled, { keyframes } from "styled-components";
@@ -32,10 +31,7 @@ const Hero = () => {
         </h1>
       </div>
       <div style={{ height: "20vh" }}>
-        <a
-          href="#resume"
-          className={classNames("focusable", "block w-16 h-16 mx-auto")}
-        >
+        <a href="#resume" className="block w-16 h-16 mx-auto focusable">
           <BobAnimation>
             <svg
               xmlns="http://www.w3.org/2000/svg"

@@ -1,10 +1,11 @@
+/* eslint-disable react/prop-types */
 import React, { useState } from "react";
 import classNames from "classnames";
 import Badge from "../../utils/Badge";
 import { css } from "twin.macro";
 import { useInView } from "react-intersection-observer";
-import "react-vertical-timeline-component/style.min.css";
 import { keyframes } from "styled-components";
+import PropTypes from "prop-types";
 
 let currentBadgeClassName = 0;
 const BADGES_CLASSNAMES = [
@@ -87,11 +88,7 @@ const Card = ({ project, className, intersectionObserverProps }) => {
     <div
       className={classNames(
         className,
-        "ease-out transform hover:scale-105 duration-300",
-        {
-          "bounce-in": visible,
-          "is-hidden": !visible,
-        }
+        "ease-out transform hover:scale-105 duration-300"
       )}
       ref={ref}
       css={css`
@@ -129,6 +126,11 @@ const Card = ({ project, className, intersectionObserverProps }) => {
       </div>
     </div>
   );
+};
+Card.propTypes = {
+  project: PropTypes.object.isRequired,
+  className: PropTypes.string,
+  intersectionObserverProps: PropTypes.object,
 };
 Card.defaultProps = {
   intersectionObserverProps: { rootMargin: "0px 0px -40px 0px" },

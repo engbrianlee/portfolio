@@ -36,14 +36,12 @@ const Header = () => {
   );
 
   return (
-    <div className={classNames("bg-secondary-900", "fixed z-10 w-full shadow")}>
+    <div className="bg-secondary-900 fixed z-10 w-full shadow">
       <header className="width-full global-padding">
         <div className="relative flex items-center justify-center py-3 lg:justify-between">
           <button
             className={classNames(
-              "text-primary-900",
-              "focusable",
-              "absolute left-0 flex items-center lg:hidden"
+              "text-primary-900 focusable absolute left-0 flex items-center lg:hidden"
             )}
             onClick={() => setNavIsOpen((navIsOpen) => !navIsOpen)}
           >
@@ -70,9 +68,7 @@ const Header = () => {
           <Link
             to="/"
             className={classNames(
-              "text-primary-900",
-              "focusable",
-              "inline-block p-2 font-serif text-xl font-bold xl:text-2xl"
+              "text-primary-900 focusable inline-block p-2 font-serif text-xl font-bold xl:text-2xl"
             )}
           >
             <svg
@@ -86,29 +82,18 @@ const Header = () => {
             </svg>
           </Link>
           <nav className="items-center hidden space-x-8 text-sm font-semibold lg:space-x-16 lg:flex xl:text-base">
-            <a
-              href="#resume"
-              className={classNames("focusable", "hover:underline")}
-            >
+            <a href="#resume" className="focusable hover:underline">
               Resume
             </a>
-            <a
-              href="#projects"
-              className={classNames("focusable", "hover:underline")}
-            >
+            <a href="#projects" className="focusable hover:underline">
               Projects
             </a>
-            <a
-              href="#contact"
-              className={classNames("focusable", "hover:underline")}
-            >
+            <a href="#contact" className="focusable hover:underline">
               Contact
             </a>
             <button
               className={classNames(
-                "text-primary-900",
-                "focusable",
-                "hidden lg:flex items-center"
+                "text-primary-900 focusable hidden lg:flex items-center"
               )}
               onClick={() => invertTheme()}
             >
@@ -117,9 +102,7 @@ const Header = () => {
           </nav>
           <button
             className={classNames(
-              "text-primary-900",
-              "focusable",
-              "absolute right-0 flex items-center lg:hidden"
+              "text-primary-900 focusable absolute right-0 flex items-center lg:hidden"
             )}
             onClick={() => invertTheme()}
           >
@@ -135,8 +118,7 @@ const Header = () => {
           <a
             href="#resume"
             className={classNames(
-              "block py-4 rounded-lg hover:underline",
-              "focusable"
+              "block py-4 rounded-lg hover:underline focusable"
             )}
           >
             Resume
@@ -144,8 +126,7 @@ const Header = () => {
           <a
             href="#projects"
             className={classNames(
-              "block py-4 rounded-lg hover:underline",
-              "focusable"
+              "block py-4 rounded-lg hover:underline focusable"
             )}
           >
             Projects
@@ -153,8 +134,7 @@ const Header = () => {
           <a
             href="#contact"
             className={classNames(
-              "block py-4 rounded-lg hover:underline",
-              "focusable"
+              "block py-4 rounded-lg hover:underline focusable"
             )}
           >
             Contact

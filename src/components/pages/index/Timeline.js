@@ -95,7 +95,7 @@ const Timeline = () => {
       description: "Just started! I'll have to let you know later 😃!",
       icon: <WorkIcon />,
       badges: ["C++", "Python"],
-      badgeClassName: classNames("text-accentOne-800", "bg-accentOne-200"),
+      badgeClassName: classNames("text-accentOne-800 bg-accentOne-200"),
       iconClassName: "bg-accentOne-600",
       contentStyle: tw`text-gray-900 border-t-4 border-accentOne-600`,
     },
@@ -109,10 +109,7 @@ const Timeline = () => {
           <a
             href="https://www.wish.com/local"
             className={classNames(
-              "focusable",
-              "border-accentOne-600",
-              "text-accentOne-600",
-              "underline"
+              "focusable border-accentOne-600 text-accentOne-600 underline"
             )}
           >
             Wish Local
@@ -123,7 +120,7 @@ const Timeline = () => {
       ),
       icon: <WorkIcon />,
       badges: ["Fullstack", "Python", "React"],
-      badgeClassName: classNames("text-accentOne-800", "bg-accentOne-200"),
+      badgeClassName: classNames("text-accentOne-800 bg-accentOne-200"),
       iconClassName: "bg-accentOne-600",
       contentStyle: tw`text-gray-900 border-t-4 border-accentOne-600`,
     },
@@ -138,10 +135,7 @@ const Timeline = () => {
           <a
             href="https://www.intel.ca/content/www/ca/en/software/programmable/quartus-prime/overview.html"
             className={classNames(
-              "focusable",
-              "border-accentOne-600",
-              "text-accentOne-600",
-              "underline"
+              "focusable border-accentOne-600 text-accentOne-600 underline"
             )}
           >
             Quartus
@@ -151,7 +145,7 @@ const Timeline = () => {
       ),
       icon: <WorkIcon />,
       badges: ["C++"],
-      badgeClassName: classNames("text-accentOne-800", "bg-accentOne-200"),
+      badgeClassName: classNames("text-accentOne-800 bg-accentOne-200"),
       iconClassName: "bg-accentOne-600",
       contentStyle: tw`text-gray-900 border-t-4 border-accentOne-600`,
     },
@@ -162,7 +156,7 @@ const Timeline = () => {
       description:
         "Graduated with the highest GPA in the Faculty of Engineering; I love learning 😛!",
       icon: <SchoolIcon />,
-      badgeClassName: classNames("text-accentTwo-800", "bg-accentTwo-200"),
+      badgeClassName: classNames("text-accentTwo-800 bg-accentTwo-200"),
       iconClassName: "bg-accentTwo-600",
       contentStyle: tw`text-gray-900 border-t-4 border-accentTwo-600`,
     },

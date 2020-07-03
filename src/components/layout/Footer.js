@@ -1,19 +1,16 @@
 import React from "react";
-import classNames from "classnames";
 
 const Footer = () => {
   return (
     <div
       id="contact"
-      className={classNames("border-white border-t border-opacity-10 shadow")}
+      className="border-t border-white shadow border-opacity-10"
     >
-      <footer
-        className={classNames("flex flex-col items-center py-4 item-center")}
-      >
+      <footer className="flex flex-col items-center py-4 item-center">
         <nav className="flex items-center">
           <a
             href="https://www.linkedin.com/in/engbrianlee/"
-            className={classNames("focusable", "p-2")}
+            className="p-2 focusable"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -27,10 +24,7 @@ const Footer = () => {
               <circle cx="4" cy="4" r="2" />
             </svg>
           </a>
-          <a
-            href="https://github.com/engbrianlee"
-            className={classNames("focusable", "p-2")}
-          >
+          <a href="https://github.com/engbrianlee" className="p-2 focusable">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="currentColor"
