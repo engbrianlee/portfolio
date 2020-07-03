@@ -6,7 +6,7 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import PropTypes from "prop-types";
-import tw from "twin.macro";
+import tw, { css } from "twin.macro";
 
 const WorkIcon = () => (
   <svg
@@ -32,6 +32,7 @@ const SchoolIcon = () => (
     <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
   </svg>
 );
+
 const TimelineElement = ({
   date,
   icon,
@@ -44,13 +45,18 @@ const TimelineElement = ({
   badgeClassName,
 }) => (
   <VerticalTimelineElement
-    {...{
-      date,
-      iconClassName,
-      contentStyle,
-      icon,
-      dateClassName: "text-primary-900 date-timeline-ebl",
-    }}
+    date={date}
+    iconClassName={iconClassName}
+    contentStyle={contentStyle}
+    icon={icon}
+    dateClassName="text-primary-900 date-timeline-ebl"
+    css={css`
+      @media (max-width: 1170px) {
+        .date-timeline-ebl {
+          ${tw`text-gray-600`}
+        }
+      }
+    `}
   >
     <h4 className="text-xs font-semibold tracking-wide text-gray-600 uppercase">
       {title}
@@ -77,8 +83,8 @@ TimelineElement.propTypes = {
   date: PropTypes.string.isRequired,
   icon: PropTypes.element.isRequired,
   company: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
   iconClassName: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   contentStyle: PropTypes.object,
   badgeClassName: PropTypes.string,
   badges: PropTypes.arrayOf(PropTypes.string),

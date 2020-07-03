@@ -84,12 +84,6 @@ html {
   @apply border-current rounded-md;
 }
 
-/* For styling the date in Timeline component */
-@media (max-width: 1170px) {
-  .date-timeline-ebl {
-    @apply text-gray-900 !important;
-  }
-}
 /* 
 .responsive {
   @apply w-full;
