@@ -1,15 +1,9 @@
-const { colors } = require("tailwindcss/defaultTheme");
 // See https://tailwindcss.com/docs/configuration for details
 module.exports = {
   purge: ["./src/**/*.js"],
   theme: {
     extend: {
       colors: {
-        gray: {
-          ...colors.gray,
-          "50": "#f6f7f8",
-          "850": "#212736",
-        },
         primary: {
           "900": "var(--color-primary-900)",
           "800": "var(--color-primary-800)",
@@ -27,6 +21,9 @@ module.exports = {
           "200": "var(--color-accentTwo-200)",
           "600": "var(--color-accentTwo-600)",
           "800": "var(--color-accentTwo-800)",
+        },
+        focusable: {
+          "900": "var(--color-focusable-900)",
         },
       },
       opacity: {

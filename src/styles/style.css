@@ -1,7 +1,7 @@
 /*! purgecss start ignore */
 @tailwind base;
 
-:root {
+.theme-white-black {
   /* Light */
   --color-primary-900: theme("colors.gray.900");
   --color-primary-800: #212736;
@@ -15,20 +15,39 @@
   --color-accentTwo-200: theme("colors.green.200");
   --color-accentTwo-600: theme("colors.green.600");
   --color-accentTwo-800: theme("colors.green.800");
-}
-/* .another-theme{
-  --color-primary-900: theme("colors.gray.900");
-  --color-primary-800: #212736;
-  --color-secondary-900: theme("colors.white");
-  --color-secondary-800: #f6f7f8;
 
-  --color-accentOne-200: theme("colors.blue.200");
-  --color-accentOne-600: theme("colors.blue.600");
-  --color-accentOne-800: theme("colors.blue.800");
-  --color-accentTwo-200: theme("colors.green.200");
-  --color-accentTwo-600: theme("colors.green.600");
-  --color-accentTwo-800: theme("colors.green.800");
-} */
+  --color-focusable-900: theme("colors.green.600");
+}
+.theme-test-1 {
+  --color-primary-900: theme("colors.purple.300");
+  --color-primary-800: theme("colors.purple.200");
+  --color-secondary-900: theme("colors.teal.300");
+  --color-secondary-800: theme("colors.teal.200");
+
+  --color-accentOne-200: theme("colors.yellow.200");
+  --color-accentOne-600: theme("colors.yellow.600");
+  --color-accentOne-800: theme("colors.yellow.800");
+  --color-accentTwo-200: theme("colors.indigo.200");
+  --color-accentTwo-600: theme("colors.indigo.600");
+  --color-accentTwo-800: theme("colors.indigo.800");
+
+  --color-focusable-900: theme("colors.red.600");
+}
+.theme-test-2 {
+  --color-primary-900: theme("colors.gray.900");
+  --color-primary-800: theme("colors.gray.800");
+  --color-secondary-900: theme("colors.yellow.300");
+  --color-secondary-800: theme("colors.yellow.200");
+
+  --color-accentOne-200: theme("colors.yellow.200");
+  --color-accentOne-600: theme("colors.yellow.600");
+  --color-accentOne-800: theme("colors.yellow.800");
+  --color-accentTwo-200: theme("colors.indigo.200");
+  --color-accentTwo-600: theme("colors.indigo.600");
+  --color-accentTwo-800: theme("colors.indigo.800");
+
+  --color-focusable-900: theme("colors.yellow.600");
+}
 html {
   scroll-behavior: smooth;
 }
@@ -55,7 +74,7 @@ html {
 }
 
 .focusable:hover {
-  @apply text-gray-600;
+  @apply text-focusable-900;
 }
 .focusable:focus {
   @apply border-2 outline-none;

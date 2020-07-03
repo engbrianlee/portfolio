@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import React from "react";
 import classNames from "classnames";
-import ThemeContext from "../../styles/theme";
 
 const Footer = () => {
   return (
