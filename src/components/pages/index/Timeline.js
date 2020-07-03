@@ -49,7 +49,7 @@ const TimelineElement = ({
       iconClassName,
       contentStyle,
       icon,
-      dateClassName: "text-primary-900",
+      dateClassName: "text-primary-900 date-timeline-ebl",
     }}
   >
     <h4 className="text-xs font-semibold tracking-wide text-gray-600 uppercase">

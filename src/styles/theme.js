@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { current } from "immer";
 const resolveConfig = require("tailwindcss/resolveConfig");
 const tailwindConfig = require("../../tailwind.config");
 
@@ -17,8 +16,6 @@ const SECONDARY_CSS_VARIABLES = Object.fromEntries(
 );
 // Swap primary and secondary properties in CSS
 const invertThemeCss = () => {
-  // Clear out any styles that were previously generated
-  // document.documentElement.removeAttribute("style");
   Object.entries(PRIMARY_CSS_VARIABLES).map(([shade, primaryCssVariable]) => {
     const primaryColor = getComputedStyle(
       document.documentElement
@@ -40,6 +37,7 @@ const invertThemeCss = () => {
 
 // const getHex = (tailwindName) =>
 //   _.get(fullConfig.theme.colors, tailwindName.replace("-", "."));
+
 function usePrevious(value) {
   // The ref object is a generic container whose current property is mutable ...
   // ... and can hold any value, similar to an instance property on a class
