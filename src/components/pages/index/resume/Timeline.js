@@ -7,7 +7,7 @@ import {
 import "react-vertical-timeline-component/style.min.css";
 import PropTypes from "prop-types";
 import tw, { css } from "twin.macro";
-import Badge from "../../utils/Badge";
+import Badge from "../../../utils/Badge";
 
 const WorkIcon = () => (
   <svg

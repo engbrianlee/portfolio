@@ -1,11 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { useState } from "react";
-import classNames from "classnames";
-import Badge from "../../utils/Badge";
+import React from "react";
 import { css } from "twin.macro";
-import { useInView } from "react-intersection-observer";
-import { keyframes } from "styled-components";
-import PropTypes from "prop-types";
+import ProjectCard from "./ProjectCard";
 
 let currentBadgeClassName = 0;
 const BADGES_CLASSNAMES = [
@@ -58,83 +54,6 @@ const PROJECTS = [
   },
 ];
 
-const bounce = keyframes`{
-   0% {
-    opacity: 0;
-    transform: scale(0.5);
-  }
-
-  60% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
-
-  100% {
-    transform: scale(1);
-  }
-}`;
-const animation = () =>
-  css`
-    ${bounce} 0.6s
-  `;
-const Card = ({ project, className, intersectionObserverProps }) => {
-  const [visible, setVisible] = useState(false);
-  const [ref, inView] = useInView(intersectionObserverProps);
-  if (!visible && inView) {
-    setVisible(true);
-  }
-
-  return (
-    <div
-      className={classNames(
-        className,
-        "ease-out transform hover:scale-105 duration-300"
-      )}
-      ref={ref}
-      css={css`
-        visibility: ${(props) => (props.isVisible ? "visible" : "hidden")};
-        animation: ${(props) => (props.isVisible ? animation : "none")};
-      `}
-      isVisible={visible}
-    >
-      <div className="relative pb-5/6">
-        <img
-          className="absolute object-cover w-full h-full rounded-lg shadow-md"
-          src={project.imgSrc}
-          alt={`${project.title}: ${project.description}`}
-        />
-      </div>
-      <div className="relative px-4 -mt-16">
-        <div className="p-6 space-y-2 bg-white rounded-lg shadow-lg">
-          <div className="space-y-1">
-            <div className="flex flex-wrap -mx-1 overflow-hidden">
-              {project.badges.map((badge) => (
-                <div key={badge} className="px-1 my-px overflow-hidden">
-                  <Badge className={project.badgeClassName}>{badge}</Badge>
-                </div>
-              ))}
-            </div>
-            <div className="text-xs font-semibold tracking-wide text-gray-600 uppercase">
-              {project.type}
-            </div>
-          </div>
-          <div className="text-gray-900">
-            <h4 className="text-xl font-semibold">{project.title}</h4>
-            <p className="text-sm lg:text-md">{project.description}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
-Card.propTypes = {
-  project: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  intersectionObserverProps: PropTypes.object,
-};
-Card.defaultProps = {
-  intersectionObserverProps: { rootMargin: "0px 0px -40px 0px" },
-};
 const Projects = () => (
   <div id="projects" className="py-24 space-y-10">
     <h2 className="pb-4 text-4xl font-semibold text-center underline">
@@ -158,7 +77,7 @@ const Projects = () => (
               ];
           }
           return (
-            <Card
+            <ProjectCard
               key={[project.title, project.description].join()}
               project={project}
             />

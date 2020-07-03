@@ -1,6 +1,6 @@
 import React from "react";
 import Timeline from "./Timeline";
-import Button from "../../utils/Button";
+import Button from "../../../utils/Button";
 import { Link } from "gatsby";
 
 const Resume = () => (
