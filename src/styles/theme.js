@@ -51,8 +51,8 @@ function usePrevious(value) {
 
 const THEMES = {
   whiteBlack: "theme-white-black",
-  test1: "theme-test-1",
-  test2: "theme-test-2",
+  airBnb: "theme-airbnb",
+  gold: "theme-gold",
 };
 const ThemeContext = React.createContext();
 // eslint-disable-next-line react/prop-types
