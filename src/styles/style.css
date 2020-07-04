@@ -86,13 +86,6 @@ html {
 .focusable:hover {
   @apply text-focusable-900;
 }
-.focusable:focus {
-  @apply border-2 outline-none;
-}
-.focusable {
-  @apply border-current rounded-md;
-}
-
 /* 
 .responsive {
   @apply w-full;
