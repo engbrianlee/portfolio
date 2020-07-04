@@ -7,6 +7,9 @@ import { useInView } from "react-intersection-observer";
 import { keyframes } from "styled-components";
 import PropTypes from "prop-types";
 import GithubCorner from "react-github-corner";
+import Img from "gatsby-image";
+import { useStaticQuery, graphql } from "gatsby";
+import Image from "../../../utils/Image";
 
 const bounceAnimation = keyframes`{
    0% {
@@ -50,13 +53,11 @@ const ProjectCard = ({ project, className, intersectionObserverProps }) => {
       isVisible={visible}
     >
       <a href={project.to || "/"}>
-        <div className="relative pb-5/6">
-          <img
-            className="absolute object-cover w-full h-full rounded-lg shadow-md"
-            src={project.imgSrc}
-            alt={`${project.title}: ${project.description}`}
-          />
-        </div>
+        <Image
+          imgName={project.imgName}
+          className="rounded-lg shadow-md"
+          alt={`${project.title}: ${project.description}`}
+        />
       </a>
       <div className="relative px-4 -mt-16">
         <div className="relative p-6 space-y-2 overflow-hidden bg-white rounded-lg shadow-lg">

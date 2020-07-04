@@ -37,7 +37,7 @@
   --color-accentThree-600: theme("colors.yellow.600");
   --color-accentThree-800: theme("colors.yellow.800");
 
-  --color-focusable-900: theme("colors.gray.600");
+  --color-focusable-900: theme("colors.gray.900");
 }
 .theme-gold {
   --color-primary-900: theme("colors.gray.900");

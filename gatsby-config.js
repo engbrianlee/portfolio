@@ -27,7 +27,8 @@ module.exports = {
         background_color: fullConfig.theme.colors.white,
         theme_color: fullConfig.theme.colors.blue["600"],
         display: `minimal-ui`,
-        icon: `src/images/logo.svg`,
+        icon: `src/images/logo.png`,
+        theme_color_in_head: false, // This will avoid adding theme-color meta tag.
       },
     },
     {
@@ -44,5 +45,14 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        path: `${__dirname}/src/images`,
+        name: "images",
+      },
+    },
   ],
 };

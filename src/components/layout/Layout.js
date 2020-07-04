@@ -7,9 +7,7 @@ function Layout({ children, footerBgColor }) {
   return (
     <div className="antialiased text-primary-900 bg-secondary-900">
       <Header />
-      <main className="bg-secondary-800 global-padding sm:pt-10">
-        {children}
-      </main>
+      <main className="pt-20 bg-secondary-800 global-padding">{children}</main>
       <Footer bgColor={footerBgColor} />
     </div>
   );

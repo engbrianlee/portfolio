@@ -54,13 +54,14 @@ const THEMES = {
   airBnb: "theme-airbnb",
   gold: "theme-gold",
 };
+const INITIAL_THEME = THEMES.whiteBlack;
 const ThemeContext = React.createContext();
 // eslint-disable-next-line react/prop-types
 export const ThemeProvider = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState(THEMES.whiteBlack);
+  const [currentTheme, setCurrentTheme] = useState(INITIAL_THEME);
   const prevTheme = usePrevious(currentTheme);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  useEffect(() => document.documentElement.classList.add(currentTheme), []);
+  useEffect(() => document.documentElement.classList.add(INITIAL_THEME), []);
 
   // Change Theme
   useEffect(() => {}, [currentTheme]);

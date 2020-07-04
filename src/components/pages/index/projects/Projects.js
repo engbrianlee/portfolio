@@ -13,8 +13,7 @@ const PROJECTS = [
   {
     title: "Basket",
     description: "A real-time, collaborative shopping list.",
-    imgSrc:
-      "https://images.unsplash.com/photo-1499881696443-e66dd9a7b496?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80",
+    imgName: "jenna-day-jMsJlnMMyZI-unsplash.jpg",
     badges: ["GraphQL", "React", "Prisma"],
     type: "Full Stack",
     to: "https://github.com/engbrianlee/basket",
@@ -23,8 +22,7 @@ const PROJECTS = [
   {
     title: "HydroHomie",
     description: "A site that reminds you to drink your water!",
-    imgSrc:
-      "https://images.unsplash.com/photo-1588250674913-e28f0351f855?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
+    imgName: "jana-sabeth-7b1W1mcwekw-unsplash.jpg",
     badges: ["GraphQL", "React", "Prisma"],
     type: "Full Stack",
     to: "https://github.com/engbrianlee/basket",
@@ -33,8 +31,7 @@ const PROJECTS = [
   {
     title: "Caf-fiend",
     description: "Ease the pain of reducing your caffiene intake.",
-    imgSrc:
-      "https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1662&q=80",
+    imgName: "mike-kenneally-tNALoIZhqVM-unsplash.jpg",
     badges: ["React"],
     type: "Frontend",
     // to: "https://github.com/engbrianlee/basket",
@@ -43,8 +40,7 @@ const PROJECTS = [
   {
     title: "Personal Site",
     description: "You're looking at it!",
-    imgSrc:
-      "https://images.unsplash.com/photo-1463171379579-3fdfb86d6285?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+    imgName: "florian-olivo-4hbJ-eymZ1o-unsplash.jpg",
     badges: ["Gatsby", "TailWindCSS"],
     type: "Frontend",
     to: "https://github.com/engbrianlee/basket",
@@ -54,11 +50,19 @@ const PROJECTS = [
     title: "Edge Vision Engine",
     description:
       "An AI surveillance system that provides real-time alerts and analysis of detected events.",
-    imgSrc:
-      "https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
+    imgName: "alan-j-hendry-KNt4zd8HPb0-unsplash.jpg",
     badges: ["Rasp Pi", "AWS", "Deep Learning"],
     type: "Deep Learning",
     to: "https://engbrianlee.github.io/EVE_frontend/#/",
+  },
+  {
+    title: "Conway's Game Of Life",
+    description: "The iconic Game of Life.",
+    imgName: "erik-mclean-C3T8KTZxTFM-unsplash.jpg",
+    badges: ["React"],
+    type: "Frontend",
+    githubSrc: "https://codesandbox.io/s/game-of-life-8qwhk",
+    to: "https://8qwhk.csb.app/",
   },
 ];
 

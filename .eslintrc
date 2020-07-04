@@ -12,14 +12,15 @@
   },
   "settings": {
     "react": {
-       "version": "detect"
-     }
+      "version": "detect"
+    }
   },
   "extends": [
     // https://eslint.org/docs/rules/
     "eslint:recommended",
     // https://github.com/yannickcr/eslint-plugin-react#recommended
     "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
     // https://github.com/benmosher/eslint-plugin-import
     "plugin:import/recommended"
   ]
