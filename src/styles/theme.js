@@ -35,9 +35,6 @@ const invertThemeCss = () => {
   });
 };
 
-// const getHex = (tailwindName) =>
-//   _.get(fullConfig.theme.colors, tailwindName.replace("-", "."));
-
 function usePrevious(value) {
   // The ref object is a generic container whose current property is mutable ...
   // ... and can hold any value, similar to an instance property on a class
