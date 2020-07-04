@@ -54,11 +54,11 @@ const Logo = ({ isScrolled }) => (
           &lt;e
         </LogoLetter>
         B
-        <LogoLetter scrolled={isScrolled} hideOnScroll marginOnHide="-2em">
+        <LogoLetter scrolled={isScrolled} hideOnScroll marginOnHide="-2.1em">
           rian&nbsp;
         </LogoLetter>
         L
-        <LogoLetter scrolled={isScrolled} hideOnScroll marginOnHide="-1.1em">
+        <LogoLetter scrolled={isScrolled} hideOnScroll marginOnHide="-1.2em">
           ee
         </LogoLetter>
         <LogoLetter scrolled={isScrolled} showOnScroll>
