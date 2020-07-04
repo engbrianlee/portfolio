@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import classNames from "classnames";
 import React, { useContext, useState, useEffect } from "react";
 import ThemeContext, { VIEWS } from "../../../styles/theme";
@@ -26,6 +27,41 @@ const useIsScrolled = () => {
   return scrolled;
 };
 
+const VIEW_CLASSNAMES = [
+  "bg-accentOne-600",
+  "bg-accentTwo-600",
+  "bg-accentThree-600",
+];
+
+const NavLink = ({
+  to,
+  name,
+  view,
+  currentView,
+  className,
+  hoverClassName,
+  viewClassName,
+}) => (
+  <a
+    href={to}
+    className={classNames(
+      "px-2 rounded-md",
+      {
+        "text-secondary-900": currentView === view,
+        [viewClassName]: currentView === view,
+        [hoverClassName]: currentView !== view,
+      },
+      className
+    )}
+  >
+    {name}
+  </a>
+);
+const LINKS = [
+  { to: "/#resume", name: "Resume", view: VIEWS.resume },
+  { to: "/#projects", name: "Projects", view: VIEWS.projects },
+  { to: "/#contact", name: "Contact", view: VIEWS.contact },
+];
 const Header = () => {
   const { invertTheme, isDarkMode, currentView } = useContext(ThemeContext);
   const [navIsOpen, setNavIsOpen] = useState(false);
@@ -96,39 +132,18 @@ const Header = () => {
             </svg>
           </button>
           <Logo isScrolled={isScrolled} />
-          <nav className="items-center hidden text-sm font-semibold lg:flex xl:text-base">
-            <a
-              href="#resume"
-              className={classNames(
-                "px-2 rounded-md hover:bg-accentOne-600 hover:text-white",
-                { "bg-accentOne-600 text-white": currentView === VIEWS.resume }
-              )}
-            >
-              Resume
-            </a>
-            <a
-              href="#projects"
-              className={classNames(
-                "px-2 rounded-md hover:bg-accentTwo-600 hover:text-white",
-                {
-                  "bg-accentTwo-600 text-white": currentView === VIEWS.projects,
-                }
-              )}
-            >
-              Projects
-            </a>
-            <a
-              href="#contact"
-              className={classNames(
-                "px-2 rounded-md hover:bg-accentThree-600 hover:text-white",
-                {
-                  "bg-accentThree-600 text-white":
-                    currentView === VIEWS.contact,
-                }
-              )}
-            >
-              Contact
-            </a>
+          <nav className="items-center hidden text-xl lg:flex xl:text-2xl">
+            {LINKS.map((link, i) => (
+              <NavLink
+                hoverClassName="hover:underline"
+                viewClassName={`${
+                  VIEW_CLASSNAMES[i % VIEW_CLASSNAMES.length]
+                } font-bold`}
+                currentView={currentView}
+                key={link.to}
+                {...link}
+              />
+            ))}
             <button
               className={classNames(
                 "text-primary-900 focusable hidden lg:flex items-center ml-10"
@@ -161,41 +176,21 @@ const Header = () => {
           <nav
             className={classNames(
               { hidden: !navIsOpen },
-              "text-sm font-semibold text-center space-y-1 pb-2"
+              "text-center text-lg space-y-1 pb-2 flex flex-col"
             )}
           >
-            <a
-              href="#resume"
-              className={classNames(
-                { "bg-accentOne-600 text-white": currentView === VIEWS.resume },
-                "block py-4 rounded-lg focusable hover:bg-accentOne-600 hover:text-white"
-              )}
-            >
-              Resume
-            </a>
-            <a
-              href="#projects"
-              className={classNames(
-                {
-                  "bg-accentTwo-600 text-white": currentView === VIEWS.projects,
-                },
-                "block py-4 rounded-lg focusable hover:bg-accentTwo-600 hover:text-white"
-              )}
-            >
-              Projects
-            </a>
-            <a
-              href="#contact"
-              className={classNames(
-                {
-                  "bg-accentThree-600 text-white":
-                    currentView === VIEWS.contact,
-                },
-                "block py-4 rounded-lg focusable hover:bg-accentThree-600 hover:text-white"
-              )}
-            >
-              Contact
-            </a>
+            {LINKS.map((link, i) => (
+              <NavLink
+                className="py-4"
+                hoverClassName="hover:underline"
+                viewClassName={`${
+                  VIEW_CLASSNAMES[i % VIEW_CLASSNAMES.length]
+                } font-bold`}
+                currentView={currentView}
+                key={link.to}
+                {...link}
+              />
+            ))}
           </nav>
         </Transition>
       </header>
