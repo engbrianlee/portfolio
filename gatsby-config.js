@@ -4,7 +4,7 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 module.exports = {
   siteMetadata: {
-    title: `Brian Lee`,
+    title: `Brian Lee • Software Engineer`,
     description: `Hi! I'm Brian, Software Engineer. Currently working @ Citadel. This is my personal site showcasing my resume, projects, and blog.`,
     author: `@engbrianlee`,
   },
