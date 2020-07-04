@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import Badge from "../../../utils/Badge";
-import tw, { css } from "twin.macro";
+import { css } from "twin.macro";
 import { useInView } from "react-intersection-observer";
 import { keyframes } from "styled-components";
 import PropTypes from "prop-types";

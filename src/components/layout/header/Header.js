@@ -72,6 +72,7 @@ const Header = () => {
               "text-primary-900 focusable absolute left-0 flex items-center lg:hidden"
             )}
             onClick={() => setNavIsOpen((navIsOpen) => !navIsOpen)}
+            aria-label="Toggle Navigation"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -109,6 +110,7 @@ const Header = () => {
                 "text-primary-900 focusable hidden lg:flex items-center"
               )}
               onClick={() => invertTheme()}
+              aria-label="Toggle Dark Mode"
             >
               <ThemeIcon />
             </button>
@@ -118,6 +120,7 @@ const Header = () => {
               "text-primary-900 focusable absolute right-0 flex items-center lg:hidden"
             )}
             onClick={() => invertTheme()}
+            aria-label="Toggle Dark Mode"
           >
             <ThemeIcon />
           </button>

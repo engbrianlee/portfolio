@@ -64,11 +64,11 @@ html {
 @tailwind components;
 
 .global-padding {
-  @apply px-12;
+  @apply px-8;
 }
 @screen md {
   .global-padding {
-    @apply px-40;
+    @apply px-20;
   }
 }
 @screen lg {

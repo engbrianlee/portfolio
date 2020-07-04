@@ -33,6 +33,80 @@ const SchoolIcon = () => (
     <path d="M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82zM12 3L1 9l11 6 9-4.91V17h2V9L12 3z" />
   </svg>
 );
+const TIMELINE_EVENTS = [
+  {
+    date: "Aug 2020 - present",
+    company: "Citadel",
+    title: "Software Engineer",
+    description: "Just started! I'll have to let you know later 😃!",
+    icon: <WorkIcon />,
+    badges: ["C++", "Python"],
+    badgeClassName: classNames("text-accentOne-800 bg-accentOne-200"),
+    iconClassName: "bg-accentOne-600",
+    contentStyle: tw`text-gray-900 border-t-4 border-accentOne-600`,
+  },
+  {
+    date: "May 2019 - Sept 2019",
+    company: "Wish",
+    title: "Software Engineering Intern",
+    description: (
+      <>
+        Automation pipelines for{" "}
+        <a
+          href="https://www.wish.com/local"
+          className={classNames(
+            "focusable border-accentOne-600 text-accentOne-600 underline"
+          )}
+        >
+          Wish Local
+        </a>
+        . Increased total approved stores by 5x as well as approval rate and
+        time by 2x!
+      </>
+    ),
+    icon: <WorkIcon />,
+    badges: ["Fullstack", "Python", "React"],
+    badgeClassName: classNames("text-accentOne-800 bg-accentOne-200"),
+    iconClassName: "bg-accentOne-600",
+    contentStyle: tw`text-gray-900 border-t-4 border-accentOne-600`,
+  },
+  {
+    date: "May 2018 - Dec 2019",
+    company: "Intel",
+    title: "Software Engineering Intern",
+    description: (
+      <>
+        Cache-friendly and memory efficient algorithms & data structures for
+        FPGA CAD software,{" "}
+        <a
+          href="https://www.intel.ca/content/www/ca/en/software/programmable/quartus-prime/overview.html"
+          className={classNames(
+            "focusable border-accentOne-600 text-accentOne-600 underline"
+          )}
+        >
+          Quartus
+        </a>
+        .
+      </>
+    ),
+    icon: <WorkIcon />,
+    badges: ["C++"],
+    badgeClassName: classNames("text-accentOne-800 bg-accentOne-200"),
+    iconClassName: "bg-accentOne-600",
+    contentStyle: tw`text-gray-900 border-t-4 border-accentOne-600`,
+  },
+  {
+    date: "June 2020",
+    company: "McMaster University",
+    title: "B.Eng Computer Engineering",
+    description:
+      "Graduated with the highest GPA in the Faculty of Engineering; I love learning 😛!",
+    icon: <SchoolIcon />,
+    badgeClassName: classNames("text-accentTwo-800 bg-accentTwo-200"),
+    iconClassName: "bg-accentTwo-600",
+    contentStyle: tw`text-gray-900 border-t-4 border-accentTwo-600`,
+  },
+];
 
 const TimelineElement = ({
   date,
@@ -87,81 +161,6 @@ TimelineElement.propTypes = {
 };
 
 const Timeline = () => {
-  const TIMELINE_EVENTS = [
-    {
-      date: "Aug 2020 - present",
-      company: "Citadel",
-      title: "Software Engineer",
-      description: "Just started! I'll have to let you know later 😃!",
-      icon: <WorkIcon />,
-      badges: ["C++", "Python"],
-      badgeClassName: classNames("text-accentOne-800 bg-accentOne-200"),
-      iconClassName: "bg-accentOne-600",
-      contentStyle: tw`text-gray-900 border-t-4 border-accentOne-600`,
-    },
-    {
-      date: "May 2019 - Sept 2019",
-      company: "Wish",
-      title: "Software Engineering Intern",
-      description: (
-        <>
-          Automation pipelines for{" "}
-          <a
-            href="https://www.wish.com/local"
-            className={classNames(
-              "focusable border-accentOne-600 text-accentOne-600 underline"
-            )}
-          >
-            Wish Local
-          </a>
-          . Increased total approved stores by 5x as well as approval rate and
-          time by 2x!
-        </>
-      ),
-      icon: <WorkIcon />,
-      badges: ["Fullstack", "Python", "React"],
-      badgeClassName: classNames("text-accentOne-800 bg-accentOne-200"),
-      iconClassName: "bg-accentOne-600",
-      contentStyle: tw`text-gray-900 border-t-4 border-accentOne-600`,
-    },
-    {
-      date: "May 2018 - Dec 2019",
-      company: "Intel",
-      title: "Software Engineering Intern",
-      description: (
-        <>
-          Cache-friendly and memory efficient algorithms & data structures for
-          FPGA CAD software,{" "}
-          <a
-            href="https://www.intel.ca/content/www/ca/en/software/programmable/quartus-prime/overview.html"
-            className={classNames(
-              "focusable border-accentOne-600 text-accentOne-600 underline"
-            )}
-          >
-            Quartus
-          </a>
-          .
-        </>
-      ),
-      icon: <WorkIcon />,
-      badges: ["C++"],
-      badgeClassName: classNames("text-accentOne-800 bg-accentOne-200"),
-      iconClassName: "bg-accentOne-600",
-      contentStyle: tw`text-gray-900 border-t-4 border-accentOne-600`,
-    },
-    {
-      date: "June 2020",
-      company: "McMaster University",
-      title: "B.Eng Computer Engineering",
-      description:
-        "Graduated with the highest GPA in the Faculty of Engineering; I love learning 😛!",
-      icon: <SchoolIcon />,
-      badgeClassName: classNames("text-accentTwo-800 bg-accentTwo-200"),
-      iconClassName: "bg-accentTwo-600",
-      contentStyle: tw`text-gray-900 border-t-4 border-accentTwo-600`,
-    },
-  ];
-
   return (
     <VerticalTimeline
     // Style the line: https://github.com/stephane-monnot/react-vertical-timeline/issues/66

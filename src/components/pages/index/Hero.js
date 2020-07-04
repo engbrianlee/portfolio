@@ -31,7 +31,11 @@ const Hero = () => {
         </h1>
       </div>
       <div style={{ height: "20vh" }}>
-        <a href="#resume" className="block w-16 h-16 mx-auto focusable">
+        <a
+          href="#resume"
+          className="block w-16 h-16 mx-auto focusable"
+          aria-label="Resume"
+        >
           <BobAnimation>
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -39,6 +43,7 @@ const Hero = () => {
               stroke="currentColor"
               strokeWidth="1"
               viewBox="0 0 24 24"
+              className="w-16 h-16"
             >
               <path d="M6 9l6 6 6-6" />
             </svg>

@@ -4,7 +4,7 @@ const fullConfig = resolveConfig(tailwindConfig);
 
 module.exports = {
   siteMetadata: {
-    title: `Brian Lee • Software Engineer`,
+    title: `Brian Lee`,
     description: `My personal site and portfolio.`,
     author: `@engbrianlee`,
   },
@@ -21,8 +21,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Brian Lee Portfolio`,
-        short_name: `engbrianlee`,
+        name: `Brian Lee • Software Engineer`,
+        short_name: `Brian Lee`,
         start_url: `/`,
         background_color: fullConfig.theme.colors.white,
         theme_color: fullConfig.theme.colors.blue["600"],

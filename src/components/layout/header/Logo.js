@@ -34,6 +34,7 @@ const Logo = ({ isScrolled }) => (
     className={classNames(
       "text-primary-900 focusable inline-block p-2 font-serif text-xl xl:text-2xl"
     )}
+    aria-label="Home"
   >
     <div className="flex items-center h-8">
       <img
