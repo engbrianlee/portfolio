@@ -17,6 +17,8 @@ const PROJECTS = [
       "https://images.unsplash.com/photo-1499881696443-e66dd9a7b496?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1651&q=80",
     badges: ["GraphQL", "React", "Prisma"],
     type: "Full Stack",
+    to: "https://github.com/engbrianlee/basket",
+    githubSrc: "https://github.com/engbrianlee/basket",
   },
   {
     title: "HydroHomie",
@@ -25,6 +27,8 @@ const PROJECTS = [
       "https://images.unsplash.com/photo-1588250674913-e28f0351f855?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80",
     badges: ["GraphQL", "React", "Prisma"],
     type: "Full Stack",
+    to: "https://github.com/engbrianlee/basket",
+    githubSrc: "https://github.com/engbrianlee/hydro-homie",
   },
   {
     title: "Caf-fiend",
@@ -33,6 +37,8 @@ const PROJECTS = [
       "https://images.unsplash.com/photo-1497515114629-f71d768fd07c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1662&q=80",
     badges: ["React"],
     type: "Frontend",
+    // to: "https://github.com/engbrianlee/basket",
+    githubSrc: "https://github.com/engbrianlee/caffiend",
   },
   {
     title: "Personal Site",
@@ -41,6 +47,8 @@ const PROJECTS = [
       "https://images.unsplash.com/photo-1463171379579-3fdfb86d6285?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
     badges: ["Gatsby", "TailWindCSS"],
     type: "Frontend",
+    to: "https://github.com/engbrianlee/basket",
+    githubSrc: "https://github.com/engbrianlee/portfolio",
   },
   {
     title: "Edge Vision Engine",
@@ -49,8 +57,8 @@ const PROJECTS = [
     imgSrc:
       "https://images.unsplash.com/photo-1558002038-1055907df827?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80",
     badges: ["Rasp Pi", "AWS", "Deep Learning"],
-    demoSrc: "https://engbrianlee.github.io/EVE_frontend/#/",
     type: "Deep Learning",
+    to: "https://engbrianlee.github.io/EVE_frontend/#/",
   },
 ];
 

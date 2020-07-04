@@ -2,10 +2,11 @@
 import React, { useState } from "react";
 import classNames from "classnames";
 import Badge from "../../../utils/Badge";
-import { css } from "twin.macro";
+import tw, { css } from "twin.macro";
 import { useInView } from "react-intersection-observer";
 import { keyframes } from "styled-components";
 import PropTypes from "prop-types";
+import GithubCorner from "react-github-corner";
 
 const bounceAnimation = keyframes`{
    0% {
@@ -48,15 +49,20 @@ const ProjectCard = ({ project, className, intersectionObserverProps }) => {
       `}
       isVisible={visible}
     >
-      <div className="relative pb-5/6">
-        <img
-          className="absolute object-cover w-full h-full rounded-lg shadow-md"
-          src={project.imgSrc}
-          alt={`${project.title}: ${project.description}`}
-        />
-      </div>
+      <a href={project.to || "/"}>
+        <div className="relative pb-5/6">
+          <img
+            className="absolute object-cover w-full h-full rounded-lg shadow-md"
+            src={project.imgSrc}
+            alt={`${project.title}: ${project.description}`}
+          />
+        </div>
+      </a>
       <div className="relative px-4 -mt-16">
-        <div className="p-6 space-y-2 bg-white rounded-lg shadow-lg">
+        <div className="relative p-6 space-y-2 overflow-hidden bg-white rounded-lg shadow-lg">
+          <GithubCorner
+            href={project.githubSrc || "https://github.com/engbrianlee"}
+          />
           <div className="space-y-1">
             <div className="flex flex-wrap -mx-1 overflow-hidden">
               {project.badges.map((badge) => (
