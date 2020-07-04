@@ -2,6 +2,7 @@ import classNames from "classnames";
 import React, { useContext, useState, useEffect } from "react";
 import ThemeContext from "../../../styles/theme";
 import Logo from "./Logo";
+import Transition from "../../utils/Transition";
 
 const useIsScrolled = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -28,7 +29,7 @@ const useIsScrolled = () => {
 const Header = () => {
   const { invertTheme, isDarkMode } = useContext(ThemeContext);
   const [navIsOpen, setNavIsOpen] = useState(false);
-  const isScrolled = useIsScrolled();
+  const isScrolled = useIsScrolled() || navIsOpen;
 
   const ThemeIcon = () => (
     <svg
@@ -125,37 +126,47 @@ const Header = () => {
             <ThemeIcon />
           </button>
         </div>
-        <nav
-          className={classNames(
-            { hidden: !navIsOpen },
-            "text-sm font-semibold text-center space-y-1 pb-2"
-          )}
+        <Transition
+          show={navIsOpen}
+          enter="ease-in-out duration-500 transform"
+          enterFrom="opacity-0 scale-0"
+          enterTo="opacity-100 scale-100"
+          leave="ease-in-out duration-500 transform"
+          leaveFrom="opacity-100 scale-100"
+          leaveTo="opacity-0 scale-0"
         >
-          <a
-            href="#resume"
+          <nav
             className={classNames(
-              "block py-4 rounded-lg hover:underline focusable"
+              { hidden: !navIsOpen },
+              "text-sm font-semibold text-center space-y-1 pb-2"
             )}
           >
-            Resume
-          </a>
-          <a
-            href="#projects"
-            className={classNames(
-              "block py-4 rounded-lg hover:underline focusable"
-            )}
-          >
-            Projects
-          </a>
-          <a
-            href="#contact"
-            className={classNames(
-              "block py-4 rounded-lg hover:underline focusable"
-            )}
-          >
-            Contact
-          </a>
-        </nav>
+            <a
+              href="#resume"
+              className={classNames(
+                "block py-4 rounded-lg hover:underline focusable"
+              )}
+            >
+              Resume
+            </a>
+            <a
+              href="#projects"
+              className={classNames(
+                "block py-4 rounded-lg hover:underline focusable"
+              )}
+            >
+              Projects
+            </a>
+            <a
+              href="#contact"
+              className={classNames(
+                "block py-4 rounded-lg hover:underline focusable"
+              )}
+            >
+              Contact
+            </a>
+          </nav>
+        </Transition>
       </header>
     </div>
   );

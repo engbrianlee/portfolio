@@ -77,7 +77,7 @@ const ProjectCard = ({ project, className, intersectionObserverProps }) => {
           </div>
           <div className="text-gray-900">
             <h4 className="text-xl font-semibold">{project.title}</h4>
-            <p className="text-sm lg:text-md">{project.description}</p>
+            <p className="text-sm lg:text-base">{project.description}</p>
           </div>
         </div>
       </div>

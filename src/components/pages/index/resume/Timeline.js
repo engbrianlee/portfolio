@@ -137,7 +137,7 @@ const TimelineElement = ({
       {title}
     </h4>
     <h3 className="text-xl font-semibold">{company}</h3>
-    <p>{description}</p>
+    <p css={tw`text-sm! font-normal! lg:text-base!`}>{description}</p>
     <div className="mt-2 space-x-1">
       {badges &&
         badges.map((badge) => (
