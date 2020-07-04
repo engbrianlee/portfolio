@@ -66,8 +66,8 @@ module.exports = {
   },
   variants: {
     // Add focus
-    textColor: ["responsive", "hover", "focus"],
-    borderWidth: ["responsive", "focus"],
+    textColor: ["responsive", "hover", "focus", "group-focus"],
+    borderWidth: ["responsive", "hover", "focus"],
   },
   // https://github.com/tailwindcss/custom-forms
   plugins: [require("@tailwindcss/custom-forms")],

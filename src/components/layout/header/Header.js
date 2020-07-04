@@ -1,6 +1,6 @@
 import classNames from "classnames";
 import React, { useContext, useState, useEffect } from "react";
-import ThemeContext from "../../../styles/theme";
+import ThemeContext, { VIEWS } from "../../../styles/theme";
 import Logo from "./Logo";
 import Transition from "../../utils/Transition";
 
@@ -27,7 +27,7 @@ const useIsScrolled = () => {
 };
 
 const Header = () => {
-  const { invertTheme, isDarkMode } = useContext(ThemeContext);
+  const { invertTheme, isDarkMode, currentView } = useContext(ThemeContext);
   const [navIsOpen, setNavIsOpen] = useState(false);
   const isScrolled = useIsScrolled() || navIsOpen;
 
@@ -67,7 +67,7 @@ const Header = () => {
       )}
     >
       <header className="width-full global-padding">
-        <div className="relative flex items-center justify-center py-3 lg:justify-between">
+        <div className="relative flex items-center justify-center py-1 lg:justify-between">
           <button
             className={classNames(
               "text-primary-900 focusable absolute left-0 flex items-center lg:hidden"
@@ -96,19 +96,42 @@ const Header = () => {
             </svg>
           </button>
           <Logo isScrolled={isScrolled} />
-          <nav className="items-center hidden space-x-8 text-sm font-semibold lg:space-x-16 lg:flex xl:text-base">
-            <a href="#resume" className="focusable hover:underline">
+          <nav className="items-center hidden text-sm font-semibold lg:flex xl:text-base">
+            <a
+              href="#resume"
+              className={classNames(
+                "px-2 rounded-md hover:bg-accentOne-600 hover:text-white",
+                { "bg-accentOne-600 text-white": currentView === VIEWS.resume }
+              )}
+            >
               Resume
             </a>
-            <a href="#projects" className="focusable hover:underline">
+            <a
+              href="#projects"
+              className={classNames(
+                "px-2 rounded-md hover:bg-accentTwo-600 hover:text-white",
+                {
+                  "bg-accentTwo-600 text-white": currentView === VIEWS.projects,
+                }
+              )}
+            >
               Projects
             </a>
-            <a href="#contact" className="focusable hover:underline">
+            <a
+              href="#contact"
+              className={classNames(
+                "px-2 rounded-md hover:bg-accentThree-600 hover:text-white",
+                {
+                  "bg-accentThree-600 text-white":
+                    currentView === VIEWS.contact,
+                }
+              )}
+            >
               Contact
             </a>
             <button
               className={classNames(
-                "text-primary-900 focusable hidden lg:flex items-center"
+                "text-primary-900 focusable hidden lg:flex items-center ml-10"
               )}
               onClick={() => invertTheme()}
               aria-label="Toggle Dark Mode"
@@ -144,7 +167,8 @@ const Header = () => {
             <a
               href="#resume"
               className={classNames(
-                "block py-4 rounded-lg hover:underline focusable"
+                { "bg-accentOne-600 text-white": currentView === VIEWS.resume },
+                "block py-4 rounded-lg focusable hover:bg-accentOne-600 hover:text-white"
               )}
             >
               Resume
@@ -152,7 +176,10 @@ const Header = () => {
             <a
               href="#projects"
               className={classNames(
-                "block py-4 rounded-lg hover:underline focusable"
+                {
+                  "bg-accentTwo-600 text-white": currentView === VIEWS.projects,
+                },
+                "block py-4 rounded-lg focusable hover:bg-accentTwo-600 hover:text-white"
               )}
             >
               Projects
@@ -160,7 +187,11 @@ const Header = () => {
             <a
               href="#contact"
               className={classNames(
-                "block py-4 rounded-lg hover:underline focusable"
+                {
+                  "bg-accentThree-600 text-white":
+                    currentView === VIEWS.contact,
+                },
+                "block py-4 rounded-lg focusable hover:bg-accentThree-600 hover:text-white"
               )}
             >
               Contact

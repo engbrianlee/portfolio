@@ -15,9 +15,9 @@
   --color-accentTwo-200: theme("colors.green.200");
   --color-accentTwo-600: theme("colors.green.600");
   --color-accentTwo-800: theme("colors.green.800");
-  --color-accentThree-200: theme("colors.teal.200");
-  --color-accentThree-600: theme("colors.teal.600");
-  --color-accentThree-800: theme("colors.teal.800");
+  --color-accentThree-200: theme("colors.pink.200");
+  --color-accentThree-600: theme("colors.pink.600");
+  --color-accentThree-800: theme("colors.pink.800");
 
   --color-focusable-900: theme("colors.gray.600");
 }

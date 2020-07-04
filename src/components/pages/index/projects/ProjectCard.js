@@ -7,8 +7,6 @@ import { useInView } from "react-intersection-observer";
 import { keyframes } from "styled-components";
 import PropTypes from "prop-types";
 import GithubCorner from "react-github-corner";
-import Img from "gatsby-image";
-import { useStaticQuery, graphql } from "gatsby";
 import Image from "../../../utils/Image";
 
 const bounceAnimation = keyframes`{

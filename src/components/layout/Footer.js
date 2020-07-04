@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { useInView } from "react-intersection-observer";
+import ThemeContext, { VIEWS } from "../../styles/theme";
 
 const Footer = () => {
+  const { setCurrentViews } = useContext(ThemeContext);
+  const [ref, inView] = useInView();
+  useEffect(
+    () => setCurrentViews((view) => ({ ...view, [VIEWS.contact]: inView })),
+    [inView, setCurrentViews]
+  );
   return (
     <div
       id="contact"
       className="border-t border-white shadow border-opacity-10"
+      ref={ref}
     >
       <footer className="flex flex-col items-center py-4 item-center">
         <nav className="flex items-center">

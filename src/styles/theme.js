@@ -48,23 +48,66 @@ function usePrevious(value) {
   // Return previous value (happens before update in useEffect above)
   return ref.current;
 }
-
+const VIEWS = {
+  hero: "#hero",
+  resume: "#resume",
+  projects: "#projects",
+  contact: "#contact",
+};
+// Which view takes priority, higher number has priority
+const VIEW_PRIORITY = {
+  [VIEWS.hero]: 0,
+  [VIEWS.resume]: 1,
+  [VIEWS.projects]: 2,
+  [VIEWS.contact]: 3,
+};
 const THEMES = {
   whiteBlack: "theme-white-black",
   airBnb: "theme-airbnb",
   gold: "theme-gold",
 };
-const INITIAL_THEME = THEMES.whiteBlack;
+
 const ThemeContext = React.createContext();
 // eslint-disable-next-line react/prop-types
 export const ThemeProvider = ({ children }) => {
-  const [currentTheme, setCurrentTheme] = useState(INITIAL_THEME);
+  const [currentTheme, setCurrentTheme] = useState(
+    (typeof window !== "undefined" && localStorage.getItem("theme")) ||
+      THEMES.whiteBlack
+  );
   const prevTheme = usePrevious(currentTheme);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-  useEffect(() => document.documentElement.classList.add(INITIAL_THEME), []);
+  const [isDarkMode, setIsDarkMode] = useState(
+    (typeof window !== "undefined" && localStorage.getItem("isDarkMode")) ===
+      "true" ||
+      ((typeof window !== "undefined" && localStorage.getItem("isDarkMode")) ===
+        null &&
+        window.matchMedia &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+  );
+  const [currentViews, setCurrentViews] = useState(
+    Object.fromEntries(Object.values(VIEWS).map((view) => [view, false]))
+  );
+  const currentView = Object.entries(currentViews).reduce(
+    (accum, [view, isInView]) => {
+      return isInView && VIEW_PRIORITY[view] > VIEW_PRIORITY[accum]
+        ? view
+        : accum;
+    },
+    [VIEWS.hero]
+  );
 
-  // Change Theme
-  useEffect(() => {}, [currentTheme]);
+  // Save to local storage
+  useEffect(
+    () =>
+      typeof window !== "undefined" &&
+      localStorage.setItem("theme", currentTheme),
+    [currentTheme]
+  );
+  useEffect(
+    () =>
+      typeof window !== "undefined" &&
+      localStorage.setItem("isDarkMode", isDarkMode),
+    [isDarkMode]
+  );
 
   useEffect(() => {
     if (currentTheme !== prevTheme) {
@@ -101,6 +144,8 @@ export const ThemeProvider = ({ children }) => {
         isDarkMode,
         themes: THEMES,
         currentTheme,
+        currentView,
+        setCurrentViews,
       }}
     >
       {children}
@@ -108,3 +153,4 @@ export const ThemeProvider = ({ children }) => {
   );
 };
 export default ThemeContext;
+export { VIEWS };

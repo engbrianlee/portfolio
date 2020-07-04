@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Typist from "react-typist";
 import "react-typist/dist/Typist.css";
 import styled, { keyframes } from "styled-components";
+import { useInView } from "react-intersection-observer";
+import ThemeContext, { VIEWS } from "../../../styles/theme";
 
 const bobAnimation = keyframes`{
   50% {
@@ -20,9 +22,20 @@ const BobAnimation = styled.div.attrs((props) => ({
 `;
 
 const Hero = () => {
+  const { setCurrentViews } = useContext(ThemeContext);
+  const [ref, inView] = useInView();
+  useEffect(
+    () => setCurrentViews((view) => ({ ...view, [VIEWS.hero]: inView })),
+    [inView, setCurrentViews]
+  );
   return (
     <>
-      <div style={{ height: "80vh" }} className="flex items-center">
+      <div
+        style={{ height: "80vh" }}
+        className="flex items-center"
+        id="hero"
+        ref={ref}
+      >
         <h1 className="text-5xl font-bold text-center md:text-6xl">
           <Typist>
             Hi! <Typist.Delay ms={500} />

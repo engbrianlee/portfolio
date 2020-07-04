@@ -1,7 +1,9 @@
 /* eslint-disable react/prop-types */
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import { css } from "twin.macro";
 import ProjectCard from "./ProjectCard";
+import { useInView } from "react-intersection-observer";
+import ThemeContext, { VIEWS } from "../../../../styles/theme";
 
 let currentBadgeClassName = 0;
 const BADGES_CLASSNAMES = [
@@ -66,38 +68,46 @@ const PROJECTS = [
   },
 ];
 
-const Projects = () => (
-  <div id="projects" className="py-24 space-y-10">
-    <h2 className="pb-4 text-4xl font-semibold text-center underline">
-      Projects
-    </h2>
-    <div
-      className="grid gap-8"
-      css={css`
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        @media (min-width: 450px) {
-          grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-        }
-      `}
-    >
-      {PROJECTS.map((project) => {
-        {
-          if (!project.badgeClassName) {
-            project.badgeClassName =
-              BADGES_CLASSNAMES[
-                currentBadgeClassName++ % BADGES_CLASSNAMES.length
-              ];
+const Projects = () => {
+  const { setCurrentViews } = useContext(ThemeContext);
+  const [ref, inView] = useInView();
+  useEffect(() => {
+    setCurrentViews((view) => ({ ...view, [VIEWS.projects]: inView }));
+  }, [inView, setCurrentViews]);
+
+  return (
+    <div id="projects" className="py-24 space-y-10" ref={ref}>
+      <h2 className="pb-4 text-4xl font-semibold text-center underline">
+        Projects
+      </h2>
+      <div
+        className="grid gap-8"
+        css={css`
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          @media (min-width: 450px) {
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
           }
-          return (
-            <ProjectCard
-              key={[project.title, project.description].join()}
-              project={project}
-            />
-          );
-        }
-      })}
+        `}
+      >
+        {PROJECTS.map((project) => {
+          {
+            if (!project.badgeClassName) {
+              project.badgeClassName =
+                BADGES_CLASSNAMES[
+                  currentBadgeClassName++ % BADGES_CLASSNAMES.length
+                ];
+            }
+            return (
+              <ProjectCard
+                key={[project.title, project.description].join()}
+                project={project}
+              />
+            );
+          }
+        })}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export default Projects;
