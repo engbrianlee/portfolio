@@ -9,7 +9,6 @@ import { Link } from "gatsby";
 
 function NotFoundPage() {
   const { changeTheme, themes, currentTheme } = useContext(ThemeContext);
-  const themesList = Object.values(themes);
   return (
     <Layout>
       <SEO
