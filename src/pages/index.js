@@ -8,7 +8,10 @@ import Projects from "../components/pages/index/projects/Projects";
 const HomePage = () => {
   return (
     <Layout>
-      <SEO keywords={["Brian Lee", "Software Engineer", "Citadel"]} />
+      <SEO
+        keywords={["Brian Lee", "Software Engineer", "Citadel"]}
+        title="Brian Lee"
+      />
       <Hero />
       <Resume />
       <Projects />
