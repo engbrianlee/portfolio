@@ -138,12 +138,14 @@ const TimelineElement = ({
     </h4>
     <h3 className="text-xl font-semibold">{company}</h3>
     <p css={tw`text-sm! font-normal! lg:text-base!`}>{description}</p>
-    <div className="mt-2 space-x-1">
+    <div className="flex flex-wrap mt-2 -mx-px overflow-hidden">
       {badges &&
         badges.map((badge) => (
-          <Badge key={badge} className={badgeClassName}>
-            {badge}
-          </Badge>
+          <div key={badge} className="px-px -my-0.5 overflow-hidden">
+            <Badge key={badge} className={badgeClassName}>
+              {badge}
+            </Badge>
+          </div>
         ))}
     </div>
   </VerticalTimelineElement>

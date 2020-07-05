@@ -54,7 +54,7 @@ const PROJECTS = [
     description:
       "An AI surveillance system that provides real-time alerts and analysis of detected events.",
     imgName: "alan-j-hendry-KNt4zd8HPb0-unsplash.jpg",
-    badges: ["Rasp Pi", "AWS", "Deep Learning"],
+    badges: ["Rasp Pi", "AWS"],
     type: "Deep Learning",
     to: "https://engbrianlee.github.io/EVE_frontend/#/",
   },
