@@ -97,104 +97,122 @@ const Header = () => {
   );
 
   return (
-    <div
-      className={classNames(
-        "fixed z-10 w-full transition-colors duration-100 ease-in",
-        isScrolled ? "bg-secondary-900 shadow" : "bg-secondary-800"
-      )}
-    >
-      <header className="width-full global-padding">
-        <div className="relative flex items-center justify-center py-1 lg:justify-between">
-          <button
-            className={classNames(
-              "text-primary-900 focusable absolute left-0 flex items-center lg:hidden"
-            )}
-            onClick={() => setNavIsOpen((navIsOpen) => !navIsOpen)}
-            aria-label="Toggle Navigation"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              viewBox="0 0 24 24"
-              className={"w-6 h-6"}
-            >
-              <path
-                className={classNames({ hidden: navIsOpen })}
-                d="M3 12h18M3 6h18M3 18h18"
-              />
-              <path
-                className={classNames({ hidden: !navIsOpen })}
-                d="M18 6L6 18M6 6l12 12"
-              />
-            </svg>
-          </button>
-          <Logo />
-          <nav className="items-center hidden text-xl lg:flex">
-            {LINKS.map((link, i) => (
-              <NavLink
-                hoverClassName="hover:underline"
-                viewClassName={`${
-                  VIEW_CLASSNAMES[i % VIEW_CLASSNAMES.length]
-                } font-bold`}
-                currentView={currentView}
-                key={link.to}
-                {...link}
-              />
-            ))}
+    <div>
+      <Transition
+        show={navIsOpen}
+        enter="ease-out duration-300"
+        enterFrom="opacity-0"
+        enterTo="opacity-100"
+        leave="ease-in duration-200"
+        leaveFrom="opacity-100"
+        leaveTo="opacity-0"
+      >
+        <div
+          className="fixed inset-0 z-10 transition-opacity"
+          onClick={() => setNavIsOpen(false)}
+        >
+          <div className="absolute inset-0 bg-gray-600 opacity-75"></div>
+        </div>
+      </Transition>
+      <div
+        className={classNames(
+          "fixed z-10 w-full transition-colors duration-100 ease-in",
+          isScrolled ? "bg-secondary-900 lg:shadow" : "bg-secondary-800"
+        )}
+      >
+        <header className="width-full global-padding">
+          <div className="relative flex items-center justify-center py-1 lg:justify-between">
             <button
               className={classNames(
-                "text-primary-900 focusable hidden lg:flex items-center ml-10"
+                "text-primary-900 focusable absolute left-0 flex items-center lg:hidden"
+              )}
+              onClick={() => setNavIsOpen((navIsOpen) => !navIsOpen)}
+              aria-label="Toggle Navigation"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                viewBox="0 0 24 24"
+                className={"w-6 h-6"}
+              >
+                <path
+                  className={classNames({ hidden: navIsOpen })}
+                  d="M3 12h18M3 6h18M3 18h18"
+                />
+                <path
+                  className={classNames({ hidden: !navIsOpen })}
+                  d="M18 6L6 18M6 6l12 12"
+                />
+              </svg>
+            </button>
+            <Logo />
+            <nav className="items-center hidden text-xl lg:flex">
+              {LINKS.map((link, i) => (
+                <NavLink
+                  hoverClassName="hover:underline"
+                  viewClassName={`${
+                    VIEW_CLASSNAMES[i % VIEW_CLASSNAMES.length]
+                  } font-bold`}
+                  currentView={currentView}
+                  key={link.to}
+                  {...link}
+                />
+              ))}
+              <button
+                className={classNames(
+                  "text-primary-900 focusable hidden lg:flex items-center ml-10"
+                )}
+                onClick={() => invertTheme()}
+                aria-label="Toggle Dark Mode"
+              >
+                <ThemeIcon />
+              </button>
+            </nav>
+            <button
+              className={classNames(
+                "text-primary-900 focusable absolute right-0 flex items-center lg:hidden"
               )}
               onClick={() => invertTheme()}
               aria-label="Toggle Dark Mode"
             >
               <ThemeIcon />
             </button>
-          </nav>
-          <button
-            className={classNames(
-              "text-primary-900 focusable absolute right-0 flex items-center lg:hidden"
-            )}
-            onClick={() => invertTheme()}
-            aria-label="Toggle Dark Mode"
+          </div>
+          <Transition
+            show={navIsOpen}
+            enter="ease-in-out duration-300 transform"
+            enterFrom="scale-y-0"
+            enterTo="scale-y-100"
+            leave="ease-in-out duration-300 transform"
+            leaveFrom="scale-y-100"
+            leaveTo="scale-y-0"
           >
-            <ThemeIcon />
-          </button>
-        </div>
-        <Transition
-          show={navIsOpen}
-          enter="ease-in-out duration-500 transform"
-          enterFrom="opacity-0 scale-0"
-          enterTo="opacity-100 scale-100"
-          leave="ease-in-out duration-500 transform"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-0"
-        >
-          <nav
-            className={classNames(
-              { hidden: !navIsOpen },
-              "text-center text-lg space-y-1 pb-2 flex flex-col"
-            )}
-          >
-            {LINKS.map((link, i) => (
-              <NavLink
-                className="py-4"
-                hoverClassName="hover:underline"
-                viewClassName={`${
-                  VIEW_CLASSNAMES[i % VIEW_CLASSNAMES.length]
-                } font-bold`}
-                currentView={currentView}
-                key={link.to}
-                {...link}
-              />
-            ))}
-          </nav>
-        </Transition>
-      </header>
+            <nav
+              className={classNames(
+                { hidden: !navIsOpen },
+                "text-center text-lg space-y-1 pt-5 flex flex-col origin-top absolute left-0 rounded-b-lg shadow-lg bg-secondary-900 w-screen"
+              )}
+            >
+              {LINKS.map((link, i) => (
+                <NavLink
+                  className="py-4"
+                  hoverClassName="hover:underline"
+                  viewClassName={`${
+                    VIEW_CLASSNAMES[i % VIEW_CLASSNAMES.length]
+                  } font-bold`}
+                  currentView={currentView}
+                  key={link.to}
+                  {...link}
+                />
+              ))}
+            </nav>
+          </Transition>
+        </header>
+      </div>
     </div>
   );
 };
