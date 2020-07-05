@@ -28,7 +28,6 @@ module.exports = {
         theme_color: fullConfig.theme.colors.blue["600"],
         display: `minimal-ui`,
         icon: `src/images/logo.png`,
-        theme_color_in_head: false, // This will avoid adding theme-color meta tag.
       },
     },
     {
