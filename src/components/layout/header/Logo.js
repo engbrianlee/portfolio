@@ -36,7 +36,7 @@ const Logo = () => {
           className={classNames("border-2 border-current rounded-full")}
           alt="An image of me, Brian Lee!"
         />
-        <span>Brian Lee</span>
+        <span className="sm:text-3xl">Brian Lee</span>
       </div>
     </Link>
   );

@@ -4,6 +4,7 @@ import React, { useContext, useState, useEffect } from "react";
 import ThemeContext, { VIEWS } from "../../../styles/theme";
 import Logo from "./Logo";
 import Transition from "../../utils/Transition";
+import { Link } from "gatsby";
 
 const useIsScrolled = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -42,8 +43,8 @@ const NavLink = ({
   hoverClassName,
   viewClassName,
 }) => (
-  <a
-    href={to}
+  <Link
+    to={to}
     className={classNames(
       "px-2 rounded-md",
       {
@@ -55,7 +56,7 @@ const NavLink = ({
     )}
   >
     {name}
-  </a>
+  </Link>
 );
 const LINKS = [
   { to: "/#resume", name: "Resume", view: VIEWS.resume },
@@ -131,8 +132,8 @@ const Header = () => {
               />
             </svg>
           </button>
-          <Logo isScrolled={isScrolled} />
-          <nav className="items-center hidden text-xl lg:flex xl:text-2xl">
+          <Logo />
+          <nav className="items-center hidden text-xl lg:flex">
             {LINKS.map((link, i) => (
               <NavLink
                 hoverClassName="hover:underline"

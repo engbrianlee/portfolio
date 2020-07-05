@@ -63,7 +63,7 @@ const ProjectCard = ({ project, className, intersectionObserverProps }) => {
             href={project.githubSrc || "https://github.com/engbrianlee"}
           />
           <div className="space-y-1">
-            <div className="flex flex-wrap -mx-1 overflow-hidden">
+            <div className="flex flex-wrap pr-16 -mx-1 overflow-hidden">
               {project.badges.map((badge) => (
                 <div key={badge} className="px-1 my-px overflow-hidden">
                   <Badge className={project.badgeClassName}>{badge}</Badge>

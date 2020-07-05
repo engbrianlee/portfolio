@@ -4,6 +4,7 @@ import { css } from "twin.macro";
 import ProjectCard from "./ProjectCard";
 import { useInView } from "react-intersection-observer";
 import ThemeContext, { VIEWS } from "../../../../styles/theme";
+import classNames from "classnames";
 
 let currentBadgeClassName = 0;
 const BADGES_CLASSNAMES = [
@@ -71,14 +72,22 @@ const PROJECTS = [
 const Projects = () => {
   const { setCurrentViews } = useContext(ThemeContext);
   const [ref, inView] = useInView();
+  const [refHeader, inViewHeader] = useInView();
   useEffect(() => {
     setCurrentViews((view) => ({ ...view, [VIEWS.projects]: inView }));
   }, [inView, setCurrentViews]);
 
   return (
     <div id="projects" className="py-24 space-y-10" ref={ref}>
-      <h2 className="pb-4 text-4xl font-semibold text-center underline">
-        Projects
+      <h2 className="pb-4 text-4xl font-semibold text-center" ref={refHeader}>
+        <span
+          className={classNames(
+            "inline-block border-accentTwo-600 border-b-4 transform transition duration-300",
+            inViewHeader ? "scale-100" : "scale-0"
+          )}
+        >
+          Projects
+        </span>
       </h2>
       <div
         className="grid gap-8"
