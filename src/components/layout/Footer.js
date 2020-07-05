@@ -145,9 +145,17 @@ const Footer = () => {
             </>
           )}
         </nav>
-        <div className={"mt-3 text-xs font-hairline xl:text-sm"}>
-          <p className="text-center">@engbrianlee</p>
-          <p>Made with ❤️ and ☕</p>
+        <div className={"mt-3 text-xs font-hairline xl:text-sm text-center"}>
+          <p>Made with ❤️ and ☕. </p>
+          <p>
+            With design help from the talented{" "}
+            <a
+              href="https://www.crystalchu.me/"
+              className="font-semibold underline hover:text-focusable-900"
+            >
+              Crystal Chu.
+            </a>
+          </p>
         </div>
       </footer>
     </div>
