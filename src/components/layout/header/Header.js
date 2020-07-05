@@ -33,18 +33,23 @@ const VIEW_CLASSNAMES = [
   "bg-accentTwo-600",
   "bg-accentThree-600",
 ];
+const HOVER_CLASSNAMES = [
+  "hover:bg-accentOne-600",
+  "hover:bg-accentTwo-600",
+  "hover:bg-accentThree-600",
+];
 
 const NavLink = ({
-  to,
   name,
   view,
   currentView,
   className,
   hoverClassName,
   viewClassName,
+  ...props
 }) => (
   <Link
-    to={to}
+    {...props}
     className={classNames(
       "px-2 rounded-md",
       {
@@ -157,9 +162,10 @@ const Header = () => {
               {LINKS.map((link, i) => (
                 <NavLink
                   hoverClassName="hover:underline"
-                  viewClassName={`${
-                    VIEW_CLASSNAMES[i % VIEW_CLASSNAMES.length]
-                  } font-bold`}
+                  viewClassName={classNames(
+                    VIEW_CLASSNAMES[i % VIEW_CLASSNAMES.length],
+                    "font-bold"
+                  )}
                   currentView={currentView}
                   key={link.to}
                   {...link}
@@ -197,18 +203,18 @@ const Header = () => {
             <nav
               className={classNames(
                 { hidden: !navIsOpen },
-                "text-center text-lg space-y-1 pt-5 flex flex-col origin-top absolute left-0 rounded-b-lg shadow-lg bg-secondary-900 w-screen"
+                "text-center text-lg pt-5 flex flex-col origin-top absolute left-0 rounded-b-lg shadow-lg bg-secondary-900 w-screen"
               )}
             >
               {LINKS.map((link, i) => (
                 <NavLink
-                  className="py-4"
-                  hoverClassName="hover:underline"
-                  viewClassName={`${
-                    VIEW_CLASSNAMES[i % VIEW_CLASSNAMES.length]
-                  } font-bold`}
-                  currentView={currentView}
+                  className={classNames(
+                    "py-4 hover:font-bold",
+                    HOVER_CLASSNAMES[i % HOVER_CLASSNAMES.length]
+                  )}
+                  currentView={false}
                   key={link.to}
+                  onClick={() => setNavIsOpen(false)}
                   {...link}
                 />
               ))}

@@ -17,7 +17,11 @@ const Button = ({ children, className, as: As, inverted, ...props }) => {
       </As>
     );
   }
-  return <button className={buttonClassName}>{children}</button>;
+  return (
+    <button className={buttonClassName} {...props}>
+      {children}
+    </button>
+  );
 };
 Button.propTypes = {
   children: PropTypes.string.isRequired,

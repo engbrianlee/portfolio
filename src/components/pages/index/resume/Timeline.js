@@ -46,6 +46,17 @@ const TIMELINE_EVENTS = [
     contentStyle: tw`text-gray-900 border-t-4 border-accentOne-600`,
   },
   {
+    date: "June 2020",
+    company: "McMaster University",
+    title: "B.Eng Computer Engineering",
+    description:
+      "Graduated with the highest GPA in the Faculty of Engineering; I love learning 😛!",
+    icon: <SchoolIcon />,
+    badgeClassName: classNames("text-accentTwo-800 bg-accentTwo-200"),
+    iconClassName: "bg-accentTwo-600",
+    contentStyle: tw`text-gray-900 border-t-4 border-accentTwo-600`,
+  },
+  {
     date: "May 2019 - Sept 2019",
     company: "Wish",
     title: "Software Engineering Intern",
@@ -94,17 +105,6 @@ const TIMELINE_EVENTS = [
     badgeClassName: classNames("text-accentOne-800 bg-accentOne-200"),
     iconClassName: "bg-accentOne-600",
     contentStyle: tw`text-gray-900 border-t-4 border-accentOne-600`,
-  },
-  {
-    date: "June 2020",
-    company: "McMaster University",
-    title: "B.Eng Computer Engineering",
-    description:
-      "Graduated with the highest GPA in the Faculty of Engineering; I love learning 😛!",
-    icon: <SchoolIcon />,
-    badgeClassName: classNames("text-accentTwo-800 bg-accentTwo-200"),
-    iconClassName: "bg-accentTwo-600",
-    contentStyle: tw`text-gray-900 border-t-4 border-accentTwo-600`,
   },
 ];
 

@@ -32,7 +32,7 @@ const Hero = () => {
     <>
       <div
         style={{ height: "80vh" }}
-        className="flex items-center"
+        className="flex items-center justify-center"
         id="hero"
         ref={ref}
       >
