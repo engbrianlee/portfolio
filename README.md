@@ -1,4 +1,6 @@
 # Tech Stack
+Based off [TailwindCSS Gatsby Template](https://github.com/taylorbryant/gatsby-starter-tailwind)
+
 - Gatsby
 - TailwindCSS
 - React
