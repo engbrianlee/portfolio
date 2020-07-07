@@ -83,7 +83,7 @@ const Header = () => {
       </Transition>
       <div
         className={classNames(
-          "fixed z-10 w-full py-2 lg:py-3",
+          "fixed z-10 w-full py-3",
           { shadow: isHeaderColorChange && !navIsOpen },
           isHeaderColorChange
             ? "bg-secondary-900 border-b border-white border-opacity-10"
