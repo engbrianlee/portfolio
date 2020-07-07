@@ -1,32 +1,10 @@
 /* eslint-disable react/prop-types */
 import classNames from "classnames";
-import React, { useContext, useState, useEffect } from "react";
+import React, { useContext } from "react";
 import ThemeContext, { VIEWS } from "../../../styles/theme";
 import Logo from "./Logo";
 import Transition from "../../utils/Transition";
 import { Link } from "gatsby";
-
-const useIsScrolled = () => {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const scrollTop =
-        document.body !== undefined ? document.body.scrollTop : 0;
-      const isScrolled = (window.pageYOffset || scrollTop) > 0;
-
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
-    };
-
-    window.addEventListener("scroll", onScroll, { passive: true });
-
-    () => window.removeEventListener("scroll", onScroll, { passive: true });
-  }, [scrolled]);
-
-  return scrolled;
-};
 
 const VIEW_CLASSNAMES = [
   "bg-accentOne-600",
@@ -69,9 +47,14 @@ const LINKS = [
   { to: "/#contact", name: "Contact", view: VIEWS.contact },
 ];
 const Header = () => {
-  const { invertTheme, isDarkMode, currentView } = useContext(ThemeContext);
-  const [navIsOpen, setNavIsOpen] = useState(false);
-  const isScrolled = useIsScrolled() || navIsOpen;
+  const {
+    invertTheme,
+    isDarkMode,
+    currentView,
+    navIsOpen,
+    setNavIsOpen,
+    isHeaderColorChange,
+  } = useContext(ThemeContext);
 
   const ThemeIcon = () => (
     <svg
@@ -125,7 +108,9 @@ const Header = () => {
       <div
         className={classNames(
           "fixed z-10 w-full transition-colors duration-100 ease-in",
-          isScrolled ? "bg-secondary-900 lg:shadow" : "bg-secondary-800"
+          isHeaderColorChange
+            ? "bg-secondary-900 lg:shadow"
+            : "bg-secondary-800"
         )}
       >
         <header className="width-full global-padding">

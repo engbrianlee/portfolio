@@ -70,6 +70,4 @@ module.exports = {
     textColor: ["responsive", "hover", "focus", "group-focus"],
     borderWidth: ["responsive", "hover", "focus"],
   },
-  // https://github.com/tailwindcss/custom-forms
-  plugins: [require("@tailwindcss/custom-forms")],
 };

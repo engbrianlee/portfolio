@@ -34,6 +34,49 @@ const invertThemeCss = () => {
     );
   });
 };
+const getColors = () => {
+  const primary = Object.fromEntries(
+    Object.entries(PRIMARY_CSS_VARIABLES).map(([shade, primaryCssVariable]) => {
+      const primaryColor = getComputedStyle(
+        document.documentElement
+      ).getPropertyValue(primaryCssVariable);
+      return [shade, primaryColor];
+    })
+  );
+  const secondary = Object.fromEntries(
+    Object.entries(SECONDARY_CSS_VARIABLES).map(
+      ([shade, secondaryCssVariable]) => {
+        const secondaryColor = getComputedStyle(
+          document.documentElement
+        ).getPropertyValue(secondaryCssVariable);
+        return [shade, secondaryColor];
+      }
+    )
+  );
+  return { primary, secondary };
+};
+
+const useIsScrolled = () => {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollTop =
+        document.body !== undefined ? document.body.scrollTop : 0;
+      const isScrolled = (window.pageYOffset || scrollTop) > 0;
+
+      if (isScrolled !== scrolled) {
+        setScrolled(isScrolled);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    () => window.removeEventListener("scroll", onScroll, { passive: true });
+  }, [scrolled]);
+
+  return scrolled;
+};
 
 function usePrevious(value) {
   // The ref object is a generic container whose current property is mutable ...
@@ -74,6 +117,8 @@ export const ThemeProvider = ({ children }) => {
     (typeof window !== "undefined" && localStorage.getItem("theme")) ||
       THEMES.whiteBlack
   );
+  const [colors, setColors] = useState(getColors());
+  const [navIsOpen, setNavIsOpen] = useState(false);
   const prevTheme = usePrevious(currentTheme);
   const [isDarkMode, setIsDarkMode] = useState(
     (typeof window !== "undefined" && localStorage.getItem("isDarkMode")) ===
@@ -124,8 +169,11 @@ export const ThemeProvider = ({ children }) => {
       if (isDarkMode) {
         invertThemeCss();
       }
+      setColors(getColors());
     }
   }, [currentTheme, prevTheme, isDarkMode]);
+
+  const isHeaderColorChange = useIsScrolled() || navIsOpen;
 
   const changeTheme = (theme) => {
     setCurrentTheme(theme);
@@ -134,6 +182,7 @@ export const ThemeProvider = ({ children }) => {
   const invertTheme = () => {
     setIsDarkMode((isDarkMode) => !isDarkMode);
     invertThemeCss();
+    setColors(getColors());
   };
 
   return (
@@ -141,11 +190,15 @@ export const ThemeProvider = ({ children }) => {
       value={{
         invertTheme,
         changeTheme,
+        colors,
         isDarkMode,
         themes: THEMES,
         currentTheme,
         currentView,
         setCurrentViews,
+        navIsOpen,
+        setNavIsOpen,
+        isHeaderColorChange,
       }}
     >
       {children}
