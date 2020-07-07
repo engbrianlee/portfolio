@@ -83,7 +83,7 @@ const Header = () => {
       </Transition>
       <div
         className={classNames(
-          "fixed z-10 w-full transition-colors duration-100 ease-in py-3",
+          "fixed z-10 w-full py-3",
           isHeaderColorChange
             ? "bg-secondary-900 lg:shadow"
             : "bg-secondary-800"
@@ -124,8 +124,7 @@ const Header = () => {
                 <NavLink
                   hoverClassName="hover:underline"
                   viewClassName={classNames(
-                    VIEW_CLASSNAMES[i % VIEW_CLASSNAMES.length],
-                    "font-bold"
+                    VIEW_CLASSNAMES[i % VIEW_CLASSNAMES.length]
                   )}
                   currentView={currentView}
                   key={link.to}
@@ -177,7 +176,7 @@ const Header = () => {
               {LINKS.map((link, i) => (
                 <NavLink
                   className={classNames(
-                    "py-4 hover:font-bold",
+                    "py-4",
                     HOVER_CLASSNAMES[i % HOVER_CLASSNAMES.length]
                   )}
                   currentView={false}
