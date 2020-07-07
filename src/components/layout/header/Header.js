@@ -5,6 +5,10 @@ import ThemeContext, { VIEWS } from "../../../styles/theme";
 import Logo from "./Logo";
 import Transition from "../../utils/Transition";
 import { Link } from "gatsby";
+import moon from "./moon.png";
+import sun from "./sun.png";
+import Toggle from "./Toggle";
+import tw from "twin.macro";
 
 const VIEW_CLASSNAMES = [
   "bg-accentOne-600",
@@ -56,34 +60,6 @@ const Header = () => {
     isHeaderColorChange,
   } = useContext(ThemeContext);
 
-  const ThemeIcon = () => (
-    <svg
-      viewBox="0 0 24 24"
-      stroke="currentColor"
-      strokeWidth="2"
-      fill="currentColor"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="w-6"
-    >
-      {isDarkMode ? (
-        <>
-          <circle cx="12" cy="12" r="5"></circle>
-          <line x1="12" y1="1" x2="12" y2="3"></line>
-          <line x1="12" y1="21" x2="12" y2="23"></line>
-          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-          <line x1="1" y1="12" x2="3" y2="12"></line>
-          <line x1="21" y1="12" x2="23" y2="12"></line>
-          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-        </>
-      ) : (
-        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-      )}
-    </svg>
-  );
-
   return (
     <div>
       <Transition
@@ -107,17 +83,17 @@ const Header = () => {
       </Transition>
       <div
         className={classNames(
-          "fixed z-10 w-full transition-colors duration-100 ease-in",
+          "fixed z-10 w-full transition-colors duration-100 ease-in py-3",
           isHeaderColorChange
             ? "bg-secondary-900 lg:shadow"
             : "bg-secondary-800"
         )}
       >
         <header className="width-full global-padding">
-          <div className="relative flex items-center justify-center py-1 lg:justify-between">
+          <div className="relative flex items-center justify-center">
             <button
               className={classNames(
-                "text-primary-900 focusable absolute left-0 flex items-center lg:hidden"
+                "text-primary-900 hover:text-focusable-900 absolute left-0 flex items-center lg:hidden"
               )}
               onClick={() => setNavIsOpen((navIsOpen) => !navIsOpen)}
               aria-label="Toggle Navigation"
@@ -142,7 +118,7 @@ const Header = () => {
                 />
               </svg>
             </button>
-            <Logo />
+            <Logo className="left-0 lg:absolute" />
             <nav className="items-center hidden text-xl lg:flex">
               {LINKS.map((link, i) => (
                 <NavLink
@@ -156,25 +132,32 @@ const Header = () => {
                   {...link}
                 />
               ))}
-              <button
-                className={classNames(
-                  "text-primary-900 focusable hidden lg:flex items-center ml-10"
-                )}
-                onClick={() => invertTheme()}
-                aria-label="Toggle Dark Mode"
-              >
-                <ThemeIcon />
-              </button>
             </nav>
-            <button
-              className={classNames(
-                "text-primary-900 focusable absolute right-0 flex items-center lg:hidden"
-              )}
-              onClick={() => invertTheme()}
-              aria-label="Toggle Dark Mode"
-            >
-              <ThemeIcon />
-            </button>
+            <Toggle
+              css={tw`absolute right-0`}
+              icons={{
+                checked: (
+                  <img
+                    src={moon}
+                    width="16"
+                    height="16"
+                    role="presentation"
+                    style={{ pointerEvents: "none" }}
+                  />
+                ),
+                unchecked: (
+                  <img
+                    src={sun}
+                    width="16"
+                    height="16"
+                    role="presentation"
+                    style={{ pointerEvents: "none" }}
+                  />
+                ),
+              }}
+              checked={isDarkMode}
+              onChange={() => invertTheme()}
+            />
           </div>
           <Transition
             show={navIsOpen}

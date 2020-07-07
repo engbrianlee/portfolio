@@ -35,6 +35,8 @@ const invertThemeCss = () => {
   });
 };
 const getColors = () => {
+  if (typeof window === "undefined") return {};
+
   const primary = Object.fromEntries(
     Object.entries(PRIMARY_CSS_VARIABLES).map(([shade, primaryCssVariable]) => {
       const primaryColor = getComputedStyle(

@@ -32,7 +32,7 @@ const Footer = () => {
         <nav className="flex items-center">
           <a
             href="https://www.linkedin.com/in/engbrianlee/"
-            className="inline-block p-2 hover:text-focusable-900"
+            className="inline-block p-2 hover:text-hover:text-focusable-900-900"
             aria-label="My Github"
           >
             <svg
@@ -49,7 +49,7 @@ const Footer = () => {
           </a>
           <a
             href="https://github.com/engbrianlee"
-            className="inline-block p-2 hover:text-focusable-900"
+            className="inline-block p-2 hover:text-hover:text-focusable-900-900"
             aria-label="My LinkedIn"
           >
             <svg
@@ -78,7 +78,7 @@ const Footer = () => {
           With design help from the talented{" "}
           <a
             href="https://www.crystalchu.me/"
-            className="font-semibold underline hover:text-focusable-900"
+            className="font-semibold underline hover:text-hover:text-focusable-900-900"
           >
             Crystal Chu
           </a>

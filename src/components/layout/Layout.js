@@ -14,8 +14,8 @@ function Layout({ children, footerBgColor }) {
           {
             name: "theme-color",
             content: isHeaderColorChange
-              ? colors.secondary["900"]
-              : colors.secondary["800"],
+              ? colors.secondary && colors.secondary["900"]
+              : colors.secondary && colors.secondary["800"],
           },
         ]}
       />

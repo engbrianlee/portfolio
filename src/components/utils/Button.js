@@ -7,7 +7,7 @@ const Button = ({ children, className, as: As, inverted, ...props }) => {
     inverted
       ? "bg-primary-900 text-secondary-900 hover:bg-secondary-900 hover:text-primary-900 hover:border-primary-900"
       : "bg-secondary-900 text-primary-900 hover:bg-primary-900 hover:text-secondary-900 hover:border-secondary-900",
-    "border font-semibold rounded-lg transition duration-300 ease-in-out focusable",
+    "border font-semibold rounded-lg transition duration-300 ease-in-out hover:text-focusable-900",
     className
   );
   if (As) {

@@ -66,7 +66,7 @@ const TIMELINE_EVENTS = [
         <a
           href="https://www.wish.com/local"
           className={classNames(
-            "focusable border-accentOne-600 text-accentOne-600 underline"
+            "hover:text-focusable-900 border-accentOne-600 text-accentOne-600 underline"
           )}
         >
           Wish Local
@@ -92,7 +92,7 @@ const TIMELINE_EVENTS = [
         <a
           href="https://www.intel.ca/content/www/ca/en/software/programmable/quartus-prime/overview.html"
           className={classNames(
-            "focusable border-accentOne-600 text-accentOne-600 underline"
+            "hover:text-focusable-900 border-accentOne-600 text-accentOne-600 underline"
           )}
         >
           Quartus

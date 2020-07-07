@@ -46,7 +46,7 @@ const Hero = () => {
       <div style={{ height: "20vh" }}>
         <a
           href="#resume"
-          className="block w-16 h-16 mx-auto focusable"
+          className="block w-16 h-16 mx-auto hover:text-focusable-900"
           aria-label="Resume"
         >
           <BobAnimation>
