@@ -83,7 +83,7 @@ const Header = () => {
       </Transition>
       <div
         className={classNames(
-          "fixed z-10 w-full py-3",
+          "fixed z-10 w-full py-2 lg:py-3",
           isHeaderColorChange
             ? "bg-secondary-900 lg:shadow"
             : "bg-secondary-800"
@@ -118,7 +118,10 @@ const Header = () => {
                 />
               </svg>
             </button>
-            <Logo className="left-0 lg:absolute" />
+            <Logo
+              className="left-0 lg:absolute"
+              imgVisible={!isHeaderColorChange}
+            />
             <nav className="items-center hidden text-xl lg:flex">
               {LINKS.map((link, i) => (
                 <NavLink

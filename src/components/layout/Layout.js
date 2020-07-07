@@ -20,7 +20,9 @@ function Layout({ children, footerBgColor }) {
         ]}
       />
       <Header />
-      <main className="pt-20 bg-secondary-800 global-padding">{children}</main>
+      <main className="pt-20 overflow-hidden bg-secondary-800 global-padding">
+        {children}
+      </main>
       <Footer bgColor={footerBgColor} />
     </div>
   );

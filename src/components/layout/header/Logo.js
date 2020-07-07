@@ -22,12 +22,12 @@ const Logo = ({ className }) => {
     <Link
       to="/"
       className={classNames(
-        "text-primary-900 hover:text-focusable-900 inline-block p-2 font-serif text-xl xl:text-2xl",
+        "text-primary-900 hover:text-focusable-900 inline-block font-serif  lg:text-2xl",
         className
       )}
       aria-label="Home"
     >
-      <div className="flex items-center h-8 space-x-2">
+      <div className="flex flex-col items-center justify-center lg:space-x-2 lg:flex-row">
         {/* <img
           src={profilePicture}
           className={classNames("w-8 h-8 border-2 border-current rounded-full")}
@@ -35,10 +35,10 @@ const Logo = ({ className }) => {
         /> */}
         <Img
           fixed={data.file.childImageSharp.fixed}
-          className={classNames("border-2 border-current rounded-full")}
+          className="border-2 border-current rounded-full"
           alt="An image of me, Brian Lee!"
         />
-        <span className="md:text-xl">Brian Lee</span>
+        <span>Brian Lee</span>
       </div>
     </Link>
   );
