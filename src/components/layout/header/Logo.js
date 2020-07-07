@@ -3,7 +3,8 @@ import React from "react";
 import { Link, useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 
-const Logo = () => {
+// eslint-disable-next-line react/prop-types
+const Logo = ({ className }) => {
   const data = useStaticQuery(graphql`
     query {
       file(relativePath: { eq: "portrait-face-crop.png" }) {
@@ -21,7 +22,8 @@ const Logo = () => {
     <Link
       to="/"
       className={classNames(
-        "text-primary-900 focusable inline-block p-2 font-serif text-xl xl:text-2xl"
+        "text-primary-900 hover:text-focusable-900 inline-block p-2 font-serif text-xl xl:text-2xl",
+        className
       )}
       aria-label="Home"
     >
