@@ -22,12 +22,12 @@ const Logo = ({ className }) => {
     <Link
       to="/"
       className={classNames(
-        "text-primary-900 hover:text-focusable-900 inline-block font-serif  lg:text-2xl",
+        "text-primary-900 hover:text-focusable-900 inline-block font-serif text-lg lg:text-2xl",
         className
       )}
       aria-label="Home"
     >
-      <div className="flex flex-col items-center justify-center lg:space-x-2 lg:flex-row">
+      <div className="flex items-center justify-center space-x-2">
         {/* <img
           src={profilePicture}
           className={classNames("w-8 h-8 border-2 border-current rounded-full")}

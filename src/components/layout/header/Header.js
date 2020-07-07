@@ -84,8 +84,9 @@ const Header = () => {
       <div
         className={classNames(
           "fixed z-10 w-full py-2 lg:py-3",
+          { shadow: isHeaderColorChange && !navIsOpen },
           isHeaderColorChange
-            ? "bg-secondary-900 lg:shadow"
+            ? "bg-secondary-900 border-b border-white border-opacity-10"
             : "bg-secondary-800"
         )}
       >
