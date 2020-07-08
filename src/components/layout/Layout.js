@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import Footer from "./Footer";
 import Header from "./header/Header";
 import { Helmet } from "react-helmet";
+import "intersection-observer";
 import ThemeContext from "../../styles/theme";
 
 function Layout({ children, footerBgColor }) {

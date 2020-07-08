@@ -25,7 +25,7 @@ module.exports = {
         short_name: `Brian Lee`,
         start_url: `/`,
         background_color: fullConfig.theme.colors.white,
-        theme_color: fullConfig.theme.colors.blue["600"],
+        theme_color: fullConfig.theme.colors.white,
         display: `minimal-ui`,
         icon: `src/images/logo.png`,
         theme_color_in_head: false,
