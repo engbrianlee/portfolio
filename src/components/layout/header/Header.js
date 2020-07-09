@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import classNames from "classnames";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import ThemeContext, { VIEWS } from "../../../styles/theme";
 import Logo from "./Logo";
 import Transition from "../../utils/Transition";
@@ -9,6 +9,11 @@ import moon from "./moon.png";
 import sun from "./sun.png";
 import Toggle from "./Toggle";
 import tw from "twin.macro";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock";
 
 const VIEW_CLASSNAMES = [
   "bg-accentOne-600",
@@ -60,6 +65,15 @@ const Header = () => {
     isHeaderColorChange,
   } = useContext(ThemeContext);
 
+  const modalRef = useRef();
+  useEffect(() => {
+    if (navIsOpen) {
+      disableBodyScroll(modalRef.current);
+    } else {
+      enableBodyScroll(modalRef.current);
+    }
+    return () => clearAllBodyScrollLocks();
+  }, [navIsOpen]);
   return (
     <div>
       <Transition
@@ -176,6 +190,7 @@ const Header = () => {
                 { hidden: !navIsOpen },
                 "text-center text-lg pt-5 flex flex-col origin-top absolute left-0 rounded-b-lg shadow-lg bg-secondary-900 w-screen"
               )}
+              ref={modalRef}
             >
               {LINKS.map((link, i) => (
                 <NavLink
