@@ -1,12 +1,10 @@
 import React, { useEffect, useContext } from "react";
 import { useInView } from "react-intersection-observer";
 import ThemeContext, { VIEWS } from "../../styles/theme";
-import classNames from "classnames";
 
 const Footer = () => {
   const { setCurrentViews } = useContext(ThemeContext);
   const [ref, inView] = useInView();
-  const [refHeader, inViewHeader] = useInView();
   useEffect(
     () => setCurrentViews((view) => ({ ...view, [VIEWS.contact]: inView })),
     [inView, setCurrentViews]
@@ -15,24 +13,13 @@ const Footer = () => {
     <footer
       id="contact"
       ref={ref}
-      className="py-4 space-y-4 border-t border-white shadow xl:space-y-6 border-opacity-10"
+      className="py-4 space-y-2 border-t border-white shadow xl:space-y-4 border-opacity-10"
     >
-      <div className="flex flex-col items-center space-y-1">
-        <h2 className="text-2xl font-semibold xl:text-3xl" ref={refHeader}>
-          <span
-            className={classNames(
-              "inline-block border-accentThree-600 border-b-2 xl:border-b-4 transform transition duration-300",
-              inViewHeader ? "scale-100" : "scale-0"
-            )}
-          >
-            Contact
-          </span>
-        </h2>
-
+      <div className="flex flex-col items-center">
         <nav className="flex items-center">
           <a
             href="https://www.linkedin.com/in/engbrianlee/"
-            className="inline-block p-2 hover:text-focusable-900"
+            className="inline-block px-2 hover:text-focusable-900"
             aria-label="My Github"
           >
             <svg
@@ -49,7 +36,7 @@ const Footer = () => {
           </a>
           <a
             href="https://github.com/engbrianlee"
-            className="inline-block p-2 hover:text-focusable-900"
+            className="inline-block px-2 hover:text-focusable-900"
             aria-label="My LinkedIn"
           >
             <svg
