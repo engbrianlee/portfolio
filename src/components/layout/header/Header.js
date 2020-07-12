@@ -8,7 +8,6 @@ import { Link } from "gatsby";
 import moon from "./moon.png";
 import sun from "./sun.png";
 import Toggle from "./Toggle";
-import tw from "twin.macro";
 import {
   disableBodyScroll,
   enableBodyScroll,
@@ -106,37 +105,38 @@ const Header = () => {
       >
         <header className="width-full global-padding">
           <div className="relative flex items-center justify-center">
-            <button
-              className={classNames(
-                "text-primary-900 hover:text-focusable-900 absolute left-0 flex items-center lg:hidden"
-              )}
-              onClick={() => setNavIsOpen((navIsOpen) => !navIsOpen)}
-              aria-label="Toggle Navigation"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                viewBox="0 0 24 24"
-                className={"w-6 h-6"}
+            <div className="flex items-center flex-1 w-0 lg:hidden">
+              <button
+                className={classNames(
+                  "text-primary-900 hover:text-focusable-900 "
+                )}
+                onClick={() => setNavIsOpen((navIsOpen) => !navIsOpen)}
+                aria-label="Toggle Navigation"
               >
-                <path
-                  className={classNames({ hidden: navIsOpen })}
-                  d="M3 12h18M3 6h18M3 18h18"
-                />
-                <path
-                  className={classNames({ hidden: !navIsOpen })}
-                  d="M18 6L6 18M6 6l12 12"
-                />
-              </svg>
-            </button>
-            <Logo
-              className="left-0 lg:absolute"
-              imgVisible={!isHeaderColorChange}
-            />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  viewBox="0 0 24 24"
+                  className={"w-6 h-6"}
+                >
+                  <path
+                    className={classNames({ hidden: navIsOpen })}
+                    d="M3 12h18M3 6h18M3 18h18"
+                  />
+                  <path
+                    className={classNames({ hidden: !navIsOpen })}
+                    d="M18 6L6 18M6 6l12 12"
+                  />
+                </svg>
+              </button>
+            </div>
+            <div className="flex lg:flex-1 lg:w-0">
+              <Logo className=" text-primary-900 hover:text-focusable-900" />
+            </div>
             <nav className="items-center hidden text-xl lg:flex">
               {LINKS.map((link, i) => (
                 <NavLink
@@ -150,31 +150,32 @@ const Header = () => {
                 />
               ))}
             </nav>
-            <Toggle
-              css={tw`absolute right-0`}
-              icons={{
-                checked: (
-                  <img
-                    src={moon}
-                    width="16"
-                    height="16"
-                    role="presentation"
-                    style={{ pointerEvents: "none" }}
-                  />
-                ),
-                unchecked: (
-                  <img
-                    src={sun}
-                    width="16"
-                    height="16"
-                    role="presentation"
-                    style={{ pointerEvents: "none" }}
-                  />
-                ),
-              }}
-              checked={isDarkMode}
-              onChange={() => invertTheme()}
-            />
+            <div className="flex justify-end flex-1 w-0">
+              <Toggle
+                icons={{
+                  checked: (
+                    <img
+                      src={moon}
+                      width="16"
+                      height="16"
+                      role="presentation"
+                      style={{ pointerEvents: "none" }}
+                    />
+                  ),
+                  unchecked: (
+                    <img
+                      src={sun}
+                      width="16"
+                      height="16"
+                      role="presentation"
+                      style={{ pointerEvents: "none" }}
+                    />
+                  ),
+                }}
+                checked={isDarkMode}
+                onChange={() => invertTheme()}
+              />
+            </div>
           </div>
           <Transition
             show={navIsOpen}
