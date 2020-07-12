@@ -31,6 +31,9 @@ module.exports = {
         focusable: {
           "900": "var(--color-focusable-900)",
         },
+        navLink: {
+          "900": "var(--color-navLink-900)",
+        },
       },
       opacity: {
         "10": "0.1",

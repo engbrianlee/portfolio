@@ -2,6 +2,26 @@ import React, { useState, useEffect, useRef } from "react";
 const resolveConfig = require("tailwindcss/resolveConfig");
 const tailwindConfig = require("../../tailwind.config");
 
+const VIEWS = {
+  hero: "#hero",
+  resume: "#resume",
+  projects: "#projects",
+  contact: "#contact",
+};
+// Which view takes priority, higher number has priority
+const VIEW_PRIORITY = {
+  [VIEWS.hero]: 0,
+  [VIEWS.resume]: 1,
+  [VIEWS.projects]: 2,
+  [VIEWS.contact]: 3,
+};
+const DARK_MODE_CLASS_NAME = "dark";
+const THEMES_CLASS_NAME = {
+  whiteBlack: "theme-white-black",
+  airBnb: "theme-airbnb",
+  gold: "theme-gold",
+};
+
 const fullConfig = resolveConfig(tailwindConfig);
 const parseCssVariableName = (s) => s.match(/var\((.+)\)/)[1];
 const PRIMARY_CSS_VARIABLES = Object.fromEntries(
@@ -14,25 +34,16 @@ const SECONDARY_CSS_VARIABLES = Object.fromEntries(
     fullConfig.theme.colors.secondary
   ).map(([shade, cssVariable]) => [shade, parseCssVariableName(cssVariable)])
 );
-// Swap primary and secondary properties in CSS
+
 const invertThemeCss = () => {
-  Object.entries(PRIMARY_CSS_VARIABLES).map(([shade, primaryCssVariable]) => {
-    const primaryColor = getComputedStyle(
-      document.documentElement
-    ).getPropertyValue(primaryCssVariable);
-    const secondaryCssVariable = SECONDARY_CSS_VARIABLES[shade];
-    const secondaryColor = getComputedStyle(
-      document.documentElement
-    ).getPropertyValue(secondaryCssVariable);
-    document.documentElement.style.setProperty(
-      primaryCssVariable,
-      secondaryColor
-    );
-    document.documentElement.style.setProperty(
-      secondaryCssVariable,
-      primaryColor
-    );
-  });
+  const isDarkMode = [...document.documentElement.classList].find(
+    (className) => className === DARK_MODE_CLASS_NAME
+  );
+  if (isDarkMode) {
+    document.documentElement.classList.remove(DARK_MODE_CLASS_NAME);
+  } else {
+    document.documentElement.classList.add(DARK_MODE_CLASS_NAME);
+  }
 };
 const getColors = () => {
   if (typeof window === "undefined") return {};
@@ -93,31 +104,12 @@ function usePrevious(value) {
   // Return previous value (happens before update in useEffect above)
   return ref.current;
 }
-const VIEWS = {
-  hero: "#hero",
-  resume: "#resume",
-  projects: "#projects",
-  contact: "#contact",
-};
-// Which view takes priority, higher number has priority
-const VIEW_PRIORITY = {
-  [VIEWS.hero]: 0,
-  [VIEWS.resume]: 1,
-  [VIEWS.projects]: 2,
-  [VIEWS.contact]: 3,
-};
-const THEMES = {
-  whiteBlack: "theme-white-black",
-  airBnb: "theme-airbnb",
-  gold: "theme-gold",
-};
-
 const ThemeContext = React.createContext();
 // eslint-disable-next-line react/prop-types
 export const ThemeProvider = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useState(
     (typeof window !== "undefined" && localStorage.getItem("theme")) ||
-      THEMES.whiteBlack
+      THEMES_CLASS_NAME.whiteBlack
   );
   const [colors, setColors] = useState(getColors());
   const [navIsOpen, setNavIsOpen] = useState(false);
@@ -158,14 +150,10 @@ export const ThemeProvider = ({ children }) => {
 
   useEffect(() => {
     if (currentTheme !== prevTheme) {
-      // Clear out any styles that were created
-      // document.documentElement.style = null;
-      document.documentElement.removeAttribute("style");
       // remove any previous theme classnames
       document.documentElement.classList.remove(
         ...document.documentElement.classList
       );
-      // Finally add the theme classname
       document.documentElement.classList.add(currentTheme);
 
       if (isDarkMode) {
@@ -194,7 +182,7 @@ export const ThemeProvider = ({ children }) => {
         changeTheme,
         colors,
         isDarkMode,
-        themes: THEMES,
+        themes: THEMES_CLASS_NAME,
         currentTheme,
         currentView,
         setCurrentViews,

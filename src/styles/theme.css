@@ -1,0 +1,117 @@
+.theme-white-black {
+  --color-primary-900: theme("colors.gray.900");
+  --color-primary-800: #212736;
+  --color-secondary-900: theme("colors.white");
+  --color-secondary-800: #f6f7f8;
+
+  --color-accentOne-200: theme("colors.blue.200");
+  --color-accentOne-600: theme("colors.blue.600");
+  --color-accentOne-800: theme("colors.blue.800");
+  --color-accentTwo-200: theme("colors.green.200");
+  --color-accentTwo-600: theme("colors.green.600");
+  --color-accentTwo-800: theme("colors.green.800");
+  --color-accentThree-200: theme("colors.pink.200");
+  --color-accentThree-600: theme("colors.pink.600");
+  --color-accentThree-800: theme("colors.pink.800");
+
+  --color-focusable-900: theme("colors.gray.600");
+  --color-navLink-900: theme("colors.white");
+}
+.theme-white-black.dark {
+  --color-primary-900: theme("colors.white");
+  --color-primary-800: #f6f7f8;
+  --color-secondary-900: theme("colors.gray.900");
+  --color-secondary-800: #212736;
+
+  --color-accentOne-200: theme("colors.blue.200");
+  --color-accentOne-600: theme("colors.blue.600");
+  --color-accentOne-800: theme("colors.blue.800");
+  --color-accentTwo-200: theme("colors.green.200");
+  --color-accentTwo-600: theme("colors.green.600");
+  --color-accentTwo-800: theme("colors.green.800");
+  --color-accentThree-200: theme("colors.pink.200");
+  --color-accentThree-600: theme("colors.pink.600");
+  --color-accentThree-800: theme("colors.pink.800");
+
+  --color-focusable-900: theme("colors.gray.600");
+  --color-navLink-900: var(--color-primary-900);
+}
+
+.theme-airbnb {
+  --color-primary-900: theme("colors.gray.900");
+  --color-primary-800: #212736;
+  --color-secondary-900: theme("colors.white");
+  --color-secondary-800: #f6f7f8;
+
+  --color-accentOne-200: theme("colors.blue.200");
+  --color-accentOne-600: theme("colors.blue.600");
+  --color-accentOne-800: theme("colors.blue.800");
+  --color-accentTwo-200: theme("colors.green.200");
+  --color-accentTwo-600: theme("colors.green.600");
+  --color-accentTwo-800: theme("colors.green.800");
+  --color-accentThree-200: theme("colors.pink.200");
+  --color-accentThree-600: theme("colors.pink.600");
+  --color-accentThree-800: theme("colors.pink.800");
+
+  --color-focusable-900: theme("colors.gray.900");
+  --color-navLink-900: theme("colors.white");
+}
+.theme-airbnb.dark {
+  --color-primary-900: theme("colors.white");
+  --color-primary-800: #f6f7f8;
+  --color-secondary-900: theme("colors.red.600");
+  --color-secondary-800: theme("colors.red.500");
+
+  --color-accentOne-200: theme("colors.blue.200");
+  --color-accentOne-600: theme("colors.blue.600");
+  --color-accentOne-800: theme("colors.blue.800");
+  --color-accentTwo-200: theme("colors.green.200");
+  --color-accentTwo-600: theme("colors.green.600");
+  --color-accentTwo-800: theme("colors.green.800");
+  --color-accentThree-200: theme("colors.teal.200");
+  --color-accentThree-600: theme("colors.teal.600");
+  --color-accentThree-800: theme("colors.teal.800");
+
+  --color-focusable-900: theme("colors.gray.900");
+
+  --color-navLink-900: theme("colors.white");
+}
+
+.theme-gold {
+  --color-primary-900: theme("colors.gray.900");
+  --color-primary-800: #212736;
+  --color-secondary-900: theme("colors.yellow.300");
+  --color-secondary-800: theme("colors.yellow.200");
+
+  --color-accentOne-200: theme("colors.blue.200");
+  --color-accentOne-600: theme("colors.blue.600");
+  --color-accentOne-800: theme("colors.blue.800");
+  --color-accentTwo-200: theme("colors.green.200");
+  --color-accentTwo-600: theme("colors.green.600");
+  --color-accentTwo-800: theme("colors.green.800");
+  --color-accentThree-200: theme("colors.pink.200");
+  --color-accentThree-600: theme("colors.pink.600");
+  --color-accentThree-800: theme("colors.pink.800");
+
+  --color-focusable-900: theme("colors.gray.600");
+  --color-navLink-900: theme("colors.white");
+}
+.theme-gold.dark {
+  --color-primary-900: theme("colors.yellow.300");
+  --color-primary-800: theme("colors.yellow.200");
+  --color-secondary-900: theme("colors.gray.900");
+  --color-secondary-800: #212736;
+
+  --color-accentOne-200: theme("colors.blue.200");
+  --color-accentOne-600: theme("colors.blue.600");
+  --color-accentOne-800: theme("colors.blue.800");
+  --color-accentTwo-200: theme("colors.green.200");
+  --color-accentTwo-600: theme("colors.green.600");
+  --color-accentTwo-800: theme("colors.green.800");
+  --color-accentThree-200: theme("colors.pink.200");
+  --color-accentThree-600: theme("colors.pink.600");
+  --color-accentThree-800: theme("colors.pink.800");
+
+  --color-focusable-900: theme("colors.white");
+  --color-navLink-900: theme("colors.white");
+}

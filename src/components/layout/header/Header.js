@@ -39,7 +39,7 @@ const NavLink = ({
     className={classNames(
       "px-2 rounded-md",
       {
-        "text-secondary-900": currentView === view,
+        "text-navLink-900": currentView === view,
         [viewClassName]: currentView === view,
         [hoverClassName]: currentView !== view,
       },
