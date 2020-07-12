@@ -53,7 +53,7 @@
   --color-accentThree-600: theme("colors.pink.600");
   --color-accentThree-800: theme("colors.pink.800");
 
-  --color-focusable-900: theme("colors.gray.900");
+  --color-focusable-900: theme("colors.gray.600");
   --color-navLink-900: theme("colors.white");
 }
 .theme-airbnb.dark {

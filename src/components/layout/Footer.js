@@ -72,13 +72,13 @@ const Footer = () => {
           </a>
         </nav>
       </div>
-      <div className={"text-xs font-hairline xl:text-sm text-center"}>
+      <div className={"text-xs font-light xl:text-sm text-center"}>
         <p>Made with ❤️ and ☕. </p>
         <p>
           With design help from the talented{" "}
           <a
             href="https://www.crystalchu.me/"
-            className="font-semibold underline hover:text-hover:text-focusable-900-900"
+            className="font-semibold underline hover:text-focusable-900"
           >
             Crystal Chu
           </a>
