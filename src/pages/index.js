@@ -10,7 +10,7 @@ const HomePage = () => {
     <Layout>
       <SEO
         keywords={["Brian Lee", "Software Engineer", "Citadel"]}
-        title="Brian Lee"
+        title="Home"
       />
       <Hero />
       <Resume />

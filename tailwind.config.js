@@ -1,4 +1,5 @@
 // See https://tailwindcss.com/docs/configuration for details
+const defaultTheme = require("tailwindcss/defaultTheme");
 module.exports = {
   purge: ["./src/**/*.js"],
   theme: {
@@ -62,6 +63,9 @@ module.exports = {
         "10/12": "83.333333%",
         "11/12": "91.666667%",
         "0.5": "2px",
+      },
+      fontFamily: {
+        sans: ["Inter", ...defaultTheme.fontFamily.sans],
       },
     },
   },

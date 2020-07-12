@@ -5,6 +5,7 @@ import Header from "./header/Header";
 import { Helmet } from "react-helmet";
 import "intersection-observer";
 import ThemeContext from "../../styles/theme";
+import "typeface-inter";
 
 function Layout({ children, footerBgColor }) {
   const { colors, isHeaderColorChange } = useContext(ThemeContext);
