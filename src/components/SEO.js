@@ -43,7 +43,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `og:image`,
-          content: `https://engbrianlee.netlify.app${twitterCard}`,
+          content: `https://engbrianlee.vercel.app${twitterCard}`,
         },
         {
           name: `twitter:card`,
@@ -63,7 +63,7 @@ function SEO({ description, lang, meta, keywords, title }) {
         },
         {
           property: `twitter:image`,
-          content: `https://engbrianlee.netlify.app${twitterCard}`,
+          content: `https://engbrianlee.vercel.app${twitterCard}`,
         },
       ]
         .concat(
