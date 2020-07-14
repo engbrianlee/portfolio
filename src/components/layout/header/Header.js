@@ -32,17 +32,20 @@ const NavLink = ({
   className,
   hoverClassName,
   viewClassName,
+  normalLink,
   ...props
 }) => (
   <Link
     {...props}
     className={classNames(
       "px-2 rounded-md",
-      {
-        "text-navLink-900": currentView === view,
-        [viewClassName]: currentView === view,
-        [hoverClassName]: currentView !== view,
-      },
+      normalLink
+        ? "text-primary-900 hover:underline"
+        : {
+            "text-navLink-900": currentView === view,
+            [viewClassName]: currentView === view,
+            [hoverClassName]: currentView !== view,
+          },
       className
     )}
   >
@@ -53,6 +56,11 @@ const LINKS = [
   { to: "/#resume", name: "Resume", view: VIEWS.resume },
   { to: "/#projects", name: "Projects", view: VIEWS.projects },
   { to: "/#contact", name: "Contact", view: VIEWS.contact },
+  {
+    to: "https://blog.engbrianlee.vercel.app/",
+    name: "Blog",
+    normalLink: true,
+  },
 ];
 const Header = () => {
   const {
