@@ -49,6 +49,17 @@ const PROJECTS = [
   // },
 
   {
+    title: "Edge Vision Engine",
+    description:
+      "An AI surveillance system that provides real-time alerts and analysis of detected events.",
+    imgName: "alan-j-hendry-KNt4zd8HPb0-unsplash.jpg",
+    badges: ["Rasp Pi", "AWS", "Deep Learning"],
+    type: "Deep Learning",
+    to: "https://www.youtube.com/watch?v=me34dZgAJzU",
+    githubSrc: "https://engbrianlee.github.io/EVE_frontend/#/",
+  },
+
+  {
     title: "Personal Blog",
     description: "Dev logs, notes, and whatever I'm working on at the moment!",
     imgName: "blog.png",
@@ -66,16 +77,6 @@ const PROJECTS = [
     type: "Frontend",
     to: "https://engbrianlee.vercel.app/",
     githubSrc: "https://github.com/engbrianlee/portfolio",
-  },
-  {
-    title: "Edge Vision Engine",
-    description:
-      "An AI surveillance system that provides real-time alerts and analysis of detected events.",
-    imgName: "alan-j-hendry-KNt4zd8HPb0-unsplash.jpg",
-    badges: ["Rasp Pi", "AWS", "Deep Learning"],
-    type: "Deep Learning",
-    to: "https://www.youtube.com/watch?v=me34dZgAJzU",
-    githubSrc: "https://engbrianlee.github.io/EVE_frontend/#/",
   },
   // {
   //   title: "Conway's Game Of Life",
