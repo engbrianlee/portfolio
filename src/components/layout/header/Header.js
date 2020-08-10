@@ -33,33 +33,53 @@ const NavLink = ({
   hoverClassName,
   viewClassName,
   normalLink,
+  externalLink,
   ...props
-}) => (
-  <Link
-    {...props}
-    className={classNames(
-      "px-2 rounded-md",
-      normalLink
-        ? "text-primary-900 hover:underline"
-        : {
-            "text-navLink-900": currentView === view,
-            [viewClassName]: currentView === view,
-            [hoverClassName]: currentView !== view,
-          },
-      className
-    )}
-  >
-    {name}
-  </Link>
-);
+}) =>
+  externalLink ? (
+    <a
+      {...props}
+      className={classNames(
+        "px-2 rounded-md",
+        normalLink
+          ? "text-primary-900 hover:underline"
+          : {
+              "text-navLink-900": currentView === view,
+              [viewClassName]: currentView === view,
+              [hoverClassName]: currentView !== view,
+            },
+        className
+      )}
+    >
+      {name}
+    </a>
+  ) : (
+    <Link
+      {...props}
+      className={classNames(
+        "px-2 rounded-md",
+        normalLink
+          ? "text-primary-900 hover:underline"
+          : {
+              "text-navLink-900": currentView === view,
+              [viewClassName]: currentView === view,
+              [hoverClassName]: currentView !== view,
+            },
+        className
+      )}
+    >
+      {name}
+    </Link>
+  );
 const LINKS = [
   { to: "/#resume", name: "Resume", view: VIEWS.resume },
   { to: "/#projects", name: "Projects", view: VIEWS.projects },
   { to: "/#contact", name: "Contact", view: VIEWS.contact },
   {
-    to: "https://blog.engbrianlee.vercel.app/",
+    href: "https://blog.engbrianlee.vercel.app/",
     name: "Blog",
     normalLink: true,
+    externalLink: true,
   },
 ];
 const Header = () => {
@@ -153,7 +173,7 @@ const Header = () => {
                     VIEW_CLASSNAMES[i % VIEW_CLASSNAMES.length]
                   )}
                   currentView={currentView}
-                  key={link.to}
+                  key={link.to || link.href}
                   {...link}
                 />
               ))}
@@ -208,7 +228,7 @@ const Header = () => {
                     HOVER_CLASSNAMES[i % HOVER_CLASSNAMES.length]
                   )}
                   currentView={false}
-                  key={link.to}
+                  key={link.to || link.href}
                   onClick={() => setNavIsOpen(false)}
                   {...link}
                 />

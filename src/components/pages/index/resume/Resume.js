@@ -29,7 +29,7 @@ const Resume = () => {
       <Button
         className="block max-w-xs p-2 mx-auto text-center"
         as={"a"}
-        href="https://www.overleaf.com/project/5d53139bdfb0583a1119f2bf"
+        href="https://www.overleaf.com/read/ftbfzmnyqfrc"
       >
         View Full Resume
       </Button>

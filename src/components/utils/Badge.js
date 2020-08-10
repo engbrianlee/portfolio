@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 const Badge = ({ children, className, as: As, ...props }) => {
   const badgeClassName = classNames(
-    "inline-block px-2 text-xs font-semibold tracking-wide uppercase rounded-full",
+    "inline-block px-2 text-xs font-semibold tracking-wide uppercase rounded-full truncate w-full",
     className
   );
   if (As) {
