@@ -1,7 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import Timeline from "./Timeline";
 import Button from "../../../utils/Button";
-import { Link } from "gatsby";
 import ThemeContext, { VIEWS } from "../../../../styles/theme";
 import { useInView } from "react-intersection-observer";
 import classNames from "classnames";
@@ -29,10 +28,10 @@ const Resume = () => {
       <Timeline />
       <Button
         className="block max-w-xs p-2 mx-auto text-center"
-        as={Link}
-        to="/resume"
+        as={"a"}
+        href="https://www.overleaf.com/project/5d53139bdfb0583a1119f2bf"
       >
-        Download Resume
+        View Full Resume
       </Button>
     </div>
   );
