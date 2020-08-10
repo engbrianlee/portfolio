@@ -138,7 +138,7 @@ const TimelineElement = ({
     </h4>
     <h3 className="text-xl font-semibold">{company}</h3>
     <p css={tw`text-sm! font-normal! lg:text-base!`}>{description}</p>
-    <div className="flex flex-wrap mt-2 -mx-px overflow-hidden">
+    <div className="flex flex-wrap mt-2 -mx-px">
       {badges &&
         badges.map((badge) => (
           <div key={badge} className="px-px -my-0.5 overflow-hidden">
