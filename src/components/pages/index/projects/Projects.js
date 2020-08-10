@@ -22,7 +22,7 @@ const PROJECTS = [
       "Apollo Client",
       "GraphQL",
       "Hasura",
-      "PostgresDB",
+      "Postgres",
       "Auth0",
     ],
     type: "Full Stack",
@@ -53,7 +53,7 @@ const PROJECTS = [
     description:
       "An AI surveillance system that provides real-time alerts and analysis of detected events.",
     imgName: "alan-j-hendry-KNt4zd8HPb0-unsplash.jpg",
-    badges: ["Rasp Pi", "AWS", "Deep Learning"],
+    badges: ["React", "AWS", "Deep Learning", "Systems Programming", "Python"],
     type: "Deep Learning",
     to: "https://www.youtube.com/watch?v=me34dZgAJzU",
     githubSrc: "https://engbrianlee.github.io/EVE_frontend/#/",
